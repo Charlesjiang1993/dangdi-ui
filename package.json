@@ -1,0 +1,23 @@
+{
+  "name": "dangdi-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "browser-sync start --server --files *.*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Charlesjiang1993/dangdi-ui.git"
+  },
+  "private": true,
+  "author": "jccc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Charlesjiang1993/dangdi-ui/issues"
+  },
+  "homepage": "https://github.com/Charlesjiang1993/dangdi-ui#readme",
+  "dependencies": {
+    "browser-sync": "^2.18.8"
+  }
+}

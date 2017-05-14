@@ -1,0 +1,18 @@
+*{
+    padding: 0;margin: 0;
+}
+#btn1{
+    margin: 20px 0 20px 20px;
+    background: #2678D4;
+    width: 100px;
+    height: 30px;
+}
+#tab1{
+    border-collapse: collapse;
+    margin-left: 20px;
+}
+#tab1 td{
+     border: 1px solid black;
+    width: 120px;
+    height: 30px;
+}
