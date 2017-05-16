@@ -1,39 +1,35 @@
-body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, pre, 
-dl, dt, dd, ul, ol, li, th, td, div, span, img, 
-fieldset, lengend, button, input, select, textarea{margin: 0;padding: 0;} 
-/*
-.clear :after{
-    content: "" ;display: block;clear: both;
+*{margin: 0;padding: 0;list-style: none;}
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td /* table elements 表格元素 */ {
+  margin: 0;
+  padding: 0;
 }
-*/
-
-.iconfont{
-	font-family:"iconfont";
-	font-size:30px;
-	font-style:normal;
-	-webkit-font-smoothing: antialiased;
-        -webkit-text-stroke-width: 0.2px;
-        -moz-osx-font-smoothing: grayscale; 
-    padding-left:20px;
-    padding-right: 20px;
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot'); /* IE9*/
+  src: url('iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
-
-@font-face {
-  font-family: 'iconfont';  /* project id 301112 */
-  src: url('//at.alicdn.com/t/font_clhroo23wey1ra4i.eot');
-  src: url('//at.alicdn.com/t/font_clhroo23wey1ra4i.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_clhroo23wey1ra4i.woff') format('woff'),
-  url('//at.alicdn.com/t/font_clhroo23wey1ra4i.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_clhroo23wey1ra4i.svg#iconfont') format('svg');
+.iconfont {
+  font-family:"iconfont" !important;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  padding-left:20px;
+  padding-right: 20px;
 }
-#box{
-    width: 1000px;  
-}
+html{width: 100%;  height: 100% ;font-size: 62.5%;}
+body{ width: 100%; min-width: 150rem;height: 100% }
 #index_left{
     background-color:  #2F323A;
     height: 100%;
-    min-width: 268px;
-    width: 15%;
+    min-width: 20rem;
+    width: 16%;
     overflow: hidden;
     float: left;
 }
@@ -41,41 +37,35 @@ fieldset, lengend, button, input, select, textarea{margin: 0;padding: 0;}
     background: #2678D4;
 }
 #index_left div{
-    cursor: default;
-}
-#index_left div{
-    font-size: 30px;
+    font-size: 2.5rem;
+     cursor: default;
     color: white;
    padding: 30px 0;
-   
 }
 #index_right{
-    position: relative;
     float: left;
-    width: 70%;
-    min-width: 500px;
-    height: 500px;    
-}
-
-#index_right .iconfont{
-    font-size: 20px;
-    padding: 0 10px;
+    width: 84%;
+    min-width: 100rem;
+    height: 100%;  
+    min-height: 60rem;  
 }
 #index_right .right_topdiv{
-width: 800px;height: 40px;
+width: 100%;height: 8%; vertical-align: middle;
 }
 #index_right .right_top{
-    font-size: 20px;
-    position: absolute;
-    right: 10px;
+    float: right;margin:1rem  2rem  0 0;
+    font-size: 2.5rem;
 }
+#index_right .right_top .right_topitem{vertical-align: middle;padding: 0;margin-left: 1rem;}
 #index_right .right_middle {
-    margin-top: 10px;
+    font-size: 2rem;
     background: #F5F5F5;
     overflow: hidden;
+    width: 100%;
+    height: 92%;
 }
 #index_right .right_middle ul{
-    margin: 10px 0 10px 15px;
+    padding: 15px 0 15px 20px;
     display: none;
 }
 #index_right .right_middle li{
@@ -87,7 +77,8 @@ width: 800px;height: 40px;
     color: #2678D4;
 }
 #iframebox{
+    margin: 0 2rem;
     border: 1px solid black;
-    width: 100%;
-    height: 500px;
+    width: 97%;height: 90%;
+    background: white;
 }
