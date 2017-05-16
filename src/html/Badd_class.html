@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight" style="height: 800px"> 
+<style>
+    .form-horizontal .control-label {
+        text-align: left;
+         width: 100px;
+    }
+    .c_r{
+        color: red;
+    }
+</style>
+    <div style="background: #fff;padding-bottom: 20px;min-height: 620px" class="col-sm-12" >
+        <br>
+        当前位置》全站内容设置》订阅号文章分类》添加分类  &nbsp; &nbsp;<a href="#" onclick="javascript:history.back(-1)">返回首页</a>
+<!--        <a href="index" role="button" class="btn btn-default btn-sm">分类管理</a>-->
+<!--        <a href="javascript:void(0);" role="button" class="btn btn-primary btn-sm">添加分类</a>-->
+        <hr />
+        <form id="formt" name="form1" action="create"  method="post"  class="form-horizontal">
+            <input type="hidden" value="ZVBMeWQtN2oqJBYhFXpPPD9gLx4VYBojExd1GxxvfTg8HjhME0BwIw==" name="_csrf-backend" />
+            <input type="hidden" name="scene" value="government">
+
+<!---->
+<!--            <div class="form-group">-->
+<!--                <label class="col-sm-3 control-label">选择所属分类<span class="c_r">*</span></label>-->
+<!--                <div id="typeDiv" class="col-sm-3">-->
+<!--                    --><!--                </div>-->
+<!--            </div>-->
+
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">分类名<span class="c_r">&nbsp;&nbsp;*</span></label>
+                <div class="col-sm-3">
+                    <label for="data-title" class="sr-only">分类名</label>
+                    <input id="data-title" type="text" name="param[name]" class="form-control"
+                           value="" placeholder="分类名" required autofocus />
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">排序<span class="c_r">&nbsp;&nbsp;*</span></label>
+                <div class="col-sm-3">
+                    <label for="data-title" class="sr-only">排序</label>
+                    <input style="height: 33px;width: 129px;text-align: center;font-size: 15px;" value="1" type="number" name="param[sortOrder]" placeholder="">
+                </div>
+            </div>
+<!--            <div class="form-group">-->
+<!--                <label class="col-sm-3 control-label">是否推荐</label>-->
+<!--                <div class="col-sm-3">-->
+<!--                    <input checked type="radio" name="param[level]" value="1">推荐-->
+<!--                    <input type="radio" name="param[level]" value="0">不推荐-->
+<!--                </div>-->
+<!--            </div>-->
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">选择区域</label>
+                <div class="col-sm-3" style="width: 80%;">
+                    <a onclick="openArea(this)" class="btn btn-primary btn-sm">展开</a>
+                    <div id="areaShow" style="display: none;"> <a onclick="$('input[type=checkbox]').prop('checked',true);">全选</a><a onclick="$('input[type=checkbox]').prop('checked',false);">取消</a><div class='province'><div class='checkBox'><input onclick='checkThis(this)' id='11' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='11' class='areaName' onclick='getSon(this)'>北京市</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='12' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='12' class='areaName' onclick='getSon(this)'>天津市</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='13' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='13' class='areaName' onclick='getSon(this)'>河北省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='14' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='14' class='areaName' onclick='getSon(this)'>山西</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='15' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='15' class='areaName' onclick='getSon(this)'>内蒙古自治区</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='21' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='21' class='areaName' onclick='getSon(this)'>辽宁省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='22' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='22' class='areaName' onclick='getSon(this)'>吉林省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='23' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='23' class='areaName' onclick='getSon(this)'>黑龙江省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='31' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='31' class='areaName' onclick='getSon(this)'>上海市</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='32' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='32' class='areaName' onclick='getSon(this)'>江苏省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='33' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='33' class='areaName' onclick='getSon(this)'>浙江省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='34' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='34' class='areaName' onclick='getSon(this)'>安徽省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='35' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='35' class='areaName' onclick='getSon(this)'>福建省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='36' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='36' class='areaName' onclick='getSon(this)'>江西省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='37' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='37' class='areaName' onclick='getSon(this)'>山东省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='41' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='41' class='areaName' onclick='getSon(this)'>河南省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='42' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='42' class='areaName' onclick='getSon(this)'>湖北省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='43' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='43' class='areaName' onclick='getSon(this)'>湖南省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='44' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='44' class='areaName' onclick='getSon(this)'>广东省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='45' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='45' class='areaName' onclick='getSon(this)'>广西壮族自治区</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='46' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='46' class='areaName' onclick='getSon(this)'>海南省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='50' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='50' class='areaName' onclick='getSon(this)'>重庆市</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='51' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='51' class='areaName' onclick='getSon(this)'>四川省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='52' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='52' class='areaName' onclick='getSon(this)'>贵州省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='53' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='53' class='areaName' onclick='getSon(this)'>云南省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='54' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='54' class='areaName' onclick='getSon(this)'>西藏自治区</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='61' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='61' class='areaName' onclick='getSon(this)'>陕西省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='62' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='62' class='areaName' onclick='getSon(this)'>甘肃省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='63' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='63' class='areaName' onclick='getSon(this)'>青海省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='64' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='64' class='areaName' onclick='getSon(this)'>宁夏回族自治区</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='65' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='65' class='areaName' onclick='getSon(this)'>新疆维吾尔自治区</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='71' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='71' class='areaName' onclick='getSon(this)'>台湾省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='81' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='81' class='areaName' onclick='getSon(this)'>香港特别行政区</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='82' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='82' class='areaName' onclick='getSon(this)'>澳门特别行政区</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='91' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='91' class='areaName' onclick='getSon(this)'>汉东省</a>
+                           <p id='areaSon'></p>
+                         </div></div><script>
+                   function checkThis(o){
+                   var isClick = $(o).attr('isClick');
+                   if(isClick=='true'){
+                   $(o).attr('isClick','false');
+                   }else{
+                   $(o).next().next().children().remove();;
+                   $(o).attr('isClick','true');
+                   }
+                   }
+                   </script></div>
+                </div>
+            </div>
+
+
+
+              <input type="hidden" value="" name="selectCode">
+
+            <hr />
+            <div class="form-group">
+                <label class="col-sm-3 control-label">&nbsp;</label>
+                <div class="col-sm-3">
+                    <a href="#" onclick="javascript:history.back(-1)" role="button" class="btn btn-sm btn-warning">返回列表</a>
+                    <button onclick="checkForm()" type="button" name="dosubmit" value="提交" class="btn btn-sm btn-primary">提交（OK）</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+<script type="text/javascript">
+
+    function checkForm(){
+           var selectType = $("#typeDiv select").val(),typeName=$("#data-title").val(),checkArea = $("input[type=checkbox]:checked");
+           var areaNum = checkArea.length;
+                if($.trim(typeName)!== ''){
+                     if(parseInt(areaNum)>0){
+                         var strCode ='';
+                         $.each(checkArea,function(k,v){
+                             strCode+=','+ $(this).attr('id');
+                         });
+                         $("input[name=selectCode]").val(strCode);
+                         $("#formt").submit();
+                     }else {
+                         alert('请选择区域');
+                     }
+                }else {
+                    alert('请填写分类名');
+                }
+//           }else{
+//               alert('请选择分类');return false;
+//           }
+    }
+
+    function openArea(o){
+        var show =  $("#areaShow").css('display');
+        if(show=='none'){
+            $(o).text('关闭');
+            $("#areaShow").css('display','block');
+        }else{
+            $(o).text('展开');
+            $("#areaShow").css('display','none');
+        }
+
+    }
+</script></div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">  
+    <title>添加管理员</title>
+    <link rel="stylesheet" href="../styles/common.css">
+</head>
+<body class="gray-bg">
+<div style="background: #fff;" class="col-sm-12" >
+    <div>当前位置》系统管理》管理员管理》添加管理员  &nbsp; &nbsp;
+       <a href="Aaccount_manage.html">返回首页</a>
+    </div>
+    <hr />
+    <div style="margin-left:30px;">
+    <form id="forms" name="form1" action="" method="post" >  
+        <div class="form-group">
+            <label class="control-label">用户姓名</label>
+            <div class="form-value">
+                <input  type="text" name="param[userName]" class="form-control"
+                       value="" placeholder="请填写用户姓名" required autofocus />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">密码</label>
+            <div class="form-value">      
+                <input type="text" name="param[passWord]" class="form-control"
+                       value="" placeholder="请填写密码" required autofocus />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">微信号</label>
+            <div class="form-value">
+                <input  type="text"  name="param[wechatID]" class="form-control"
+                       value="" placeholder="请填写微信号"  autofocus />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">职位</label>
+            <div class="form-value">
+                <select name="param[roleID]" class="form-control a-cate" autofocus="">
+                                            <option value="17">系统超级管理</option>
+                                           <option value="231">日志管理员</option>
+                                           <option value="241">系统超级管理员</option>
+                                           <option value="261">主数据管理员</option>
+                                           <option value="271">运营管理</option>
+                                           <option value="281">楼栋数据管理员</option>
+                                           <option value="291">账号管理员</option>
+                                           <option value="301">传送门账号管理员</option>
+                                           <option value="311">数据分析员</option>
+                                           <option value="321">二维码管理</option>
+                                   </select>
+            </div>
+        </div>
+          <div class="form-group">
+            <label class="control-label">性别</label>
+            <div class="form-value">
+              
+                <input checked name="param[sex]" value="1" type="radio">男 <input value="0" name="param[sex]" type="radio">女
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">状态</label>
+            <div class="col-sm-3">
+                <input checked name="param[isValid]" value="1" type="radio">开启 <input value="0" name="param[isValid]" type="radio">禁用
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <label class="control-label">&nbsp;</label>
+            <div class="submitarea">
+                <button type="submit" name="dosubmit" value="提交" class="">提交（OK）</button>
+                <a href="Aroles_manage.html" role="button" class="btn">返回列表</a>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
+</body>
+</html>

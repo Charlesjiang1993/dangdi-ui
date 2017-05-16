@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>发布系统通知</title>
+</head>
+<body>
+
+<div class="wrap">
+    <div class="container">
+        
+<style>
+    .file-upload{width: 92px;height: 92px;background: url(/statics/plugins/uploadeImg/img/upload.jpg) no-repeat;z-index: 5;overflow: hidden;}
+    .c_r{color: red}
+    .checkbox-inline{
+        border: 1px solid #c8c8c8;
+        border-radius: 2px;
+        color: #c2c2c2;
+        font-size: 13px;
+        width: 68px;
+        padding: 5px;
+    }
+    .checked{
+        color: rgb(247, 247, 247);
+        background-color: #1ab394;
+    }
+    .container {
+            width:100%;
+        }
+</style>
+
+<div style="background: #fff;padding-bottom: 20px;min-height: 620px" class="col-sm-12" >
+    <br>
+    当前位置》全站内容设置》系统通知》发布系统通知  &nbsp;  &nbsp; <a href="Bclient_notice.html">返回首页</a>
+<!--    <a href="#" role="button" class="btn btn-default btn-sm">系统通知管理</a>-->
+<!--    <a href="#" role="button" class="btn btn-default btn-sm">添加系统通知</a>-->
+    <hr />
+    <ul class="nav nav-tabs tabs-flat">
+        <li class="active"><a class="one_tag" href="#one" data-toggle="tab">基本信息</a></li>
+    </ul>
+
+    <form id="form1" name="form1" onsubmit="return submitChick();" action="create" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <input type="hidden" value="eHlvSW5idS03DTURHzUNeyJJDC4fL1hkDj5WKxYgP38hNxt8GQ8yZA==" name="_csrf-backend" />
+        <input type="hidden" name="selectCode">
+        <div class="tab-content tabs-flat"  style="margin-top: 20px">
+            <div class="tab-pane active" id="one">
+
+                <div class="form-group">
+                    <label  class="col-sm-1 control-label">通知区域</label>
+                    <div style="width: 80%" class="col-sm-3">
+                        <a onclick="openArea(this)" class="btn btn-primary btn-sm">展开</a>
+                        <div id="areaShow" style="display: none;"> <div class='province'><div class='checkBox'><input onclick='checkThis(this)' id='11' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='11' class='areaName' onclick='getSon(this)'>北京市</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='12' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='12' class='areaName' onclick='getSon(this)'>天津市</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='13' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='13' class='areaName' onclick='getSon(this)'>河北省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='14' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='14' class='areaName' onclick='getSon(this)'>山西</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='15' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='15' class='areaName' onclick='getSon(this)'>内蒙古自治区</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='21' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='21' class='areaName' onclick='getSon(this)'>辽宁省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='22' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='22' class='areaName' onclick='getSon(this)'>吉林省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='23' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='23' class='areaName' onclick='getSon(this)'>黑龙江省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='31' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='31' class='areaName' onclick='getSon(this)'>上海市</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='32' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='32' class='areaName' onclick='getSon(this)'>江苏省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='33' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='33' class='areaName' onclick='getSon(this)'>浙江省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='34' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='34' class='areaName' onclick='getSon(this)'>安徽省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='35' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='35' class='areaName' onclick='getSon(this)'>福建省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='36' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='36' class='areaName' onclick='getSon(this)'>江西省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='37' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='37' class='areaName' onclick='getSon(this)'>山东省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='41' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='41' class='areaName' onclick='getSon(this)'>河南省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='42' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='42' class='areaName' onclick='getSon(this)'>湖北省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='43' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='43' class='areaName' onclick='getSon(this)'>湖南省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='44' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='44' class='areaName' onclick='getSon(this)'>广东省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='45' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='45' class='areaName' onclick='getSon(this)'>广西壮族自治区</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='46' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='46' class='areaName' onclick='getSon(this)'>海南省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='50' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='50' class='areaName' onclick='getSon(this)'>重庆市</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='51' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='51' class='areaName' onclick='getSon(this)'>四川省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='52' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='52' class='areaName' onclick='getSon(this)'>贵州省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='53' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='53' class='areaName' onclick='getSon(this)'>云南省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='54' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='54' class='areaName' onclick='getSon(this)'>西藏自治区</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='61' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='61' class='areaName' onclick='getSon(this)'>陕西省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='62' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='62' class='areaName' onclick='getSon(this)'>甘肃省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='63' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='63' class='areaName' onclick='getSon(this)'>青海省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='64' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='64' class='areaName' onclick='getSon(this)'>宁夏回族自治区</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='65' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='65' class='areaName' onclick='getSon(this)'>新疆维吾尔自治区</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='71' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='71' class='areaName' onclick='getSon(this)'>台湾省</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='81' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='81' class='areaName' onclick='getSon(this)'>香港特别行政区</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='82' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='82' class='areaName' onclick='getSon(this)'>澳门特别行政区</a>
+                           <p id='areaSon'></p>
+                         </div><div class='checkBox'><input onclick='checkThis(this)' id='91' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='91' class='areaName' onclick='getSon(this)'>汉东省</a>
+                           <p id='areaSon'></p>
+                         </div></div><script>
+                   function checkThis(o){
+                   var isClick = $(o).attr('isClick');
+                   if(isClick=='true'){
+                   $(o).attr('isClick','false');
+                   }else{
+                   $(o).next().next().children().remove();;
+                   $(o).attr('isClick','true');
+                   }
+                   }
+                   </script></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">通知标题<span class="c_r">*</span></label>
+                    <div class="col-sm-6">
+                        <label for="data-title" class="sr-only ">通知标题</label>
+                        <input id="data-title" type="text" name="param[noticeTitle]" class="form-control a-title"
+                               value="" placeholder="系统通知标题"  autofocus />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">是否上传封面</label>
+                    <div class="col-sm-10" id="check-hover">
+                        <label class="checkbox-inline checked">
+                            <input checked style="display: none;" type="radio" name="param[hasCover]" value="1" id="inlineCheckbox1">上传封面
+                        </label>
+                        <label style="width: 77px;height: 31px;" class="checkbox-inline">
+                            <input style="display: none;" type="radio" name="param[hasCover]" value="2" id="inlineCheckbox2">不上传封面
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group imgs" >
+                    <label class="col-sm-1 control-label" style="margin-right: 15px">上传封面</label>
+                    <div class="m-user-poto" >
+                        <div class="user-upload clearfix">
+                            <div class="file-upload f_fl" id="image_input_block">
+                            </div>
+                            <p class="f_fl" style="margin-left:111px">
+                                请上传不超过2M的图片,支持jpg，gif，png
+                            </p>
+                        </div>
+                        <div class="upload-images" id="preview_block" style="margin-left: 111px">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-1 control-label">内容<span class="c_r">*</span></label>
+                <div>
+                    <label for="data-content" class="sr-only">内容</label>
+                    <!--                        <input id="data-content" type="hidden" name="param[topicContent]" value="" />-->
+                                        <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+                    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+                    <textarea name="param[noticeContent]" id="editor" type="text/plain" language="javascript" class="col-sm-10" style="height:380px;"></textarea>
+                    
+                </div>
+            </div>
+
+            <hr />
+            <div class="form-group">
+                <label class="col-sm-1 control-label">&nbsp;</label>
+                <div class="col-sm-3">
+                    <a href="Bclient_notice.html" role="button" class="btn btn-sm btn-warning">返回列表</a>
+                    <button type="submit" name="dosubmit" value="提交" class="btn btn-sm btn-primary">提交（OK）</button>
+                </div>
+            </div>
+    </form>
+</div>
+
+
+
+    </div>
+</div>
+<script type="text/javascript">
+                        //实例化编辑器
+                        //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+                        var ue = UE.getEditor('editor');
+                    
+
+    var _csrfToken = $('input[name=_csrf-backend]').val();
+    /*监听网页*/
+    $(window).unload(function(){
+        $.ajax({
+            url:'del-cover-session',
+            async:false,
+            type: 'post',                          /*post 提交*/
+            data: {'_csrf-backend':_csrfToken},
+            dataType:'text',                     /*返回文本格式的数据*/
+            success: function(data){
+                if(data==1){return true;}
+            },
+            error: function(){          /*请求错误*/
+                alert("请求未能成功");return false;
+            }
+        });
+    });
+
+    myImageUploader1 = new JSG.imgUploader({
+        fileLimits: 1, //最大上传数
+        actionUrl: '/notices/notice-cover-upload',
+        delUrl:'/upload/del-image',
+        fileInputName:'UploadForm[file]',
+        inputContainer: 'image_input_block',//上传按钮容器
+        previewContainer: 'preview_block', // 图片预览容器
+        csrfName:'_csrf-backend',
+        baseUrl:'/',
+        csrf:'eHlvSW5idS03DTURHzUNeyJJDC4fL1hkDj5WKxYgP38hNxt8GQ8yZA==',
+        loadingIcon: '/statics/plugins/uploadeImg/img/loading_indicator_big.gif',
+        deleteIcon: '/statics/plugins/uploadeImg/img/icon_delete.png'
+        //existImages: 'http://placehold.it/76x70,http://placehold.it/76x70,http://placehold.it/76x70,http://placehold.it/76x70,http://placehold.it/76x70,http://placehold.it/76x70'
+    });
+
+    function submitChick(){
+        var flag=0;
+        for(var i=0;i<$('.upload-images').length;i++ ){
+            if(myImageUploader1.isReady()){
+                $('form').append('<input type="hidden" name="content['+i+']" value='+myImageUploader1.getFiles()+'>');
+            }else{
+                flag++;
+            }
+        }
+        if(flag!=0){
+            alert('图片正在上传现,提交可能导致图片破损或不显示,您确定要提交?');
+            return false;
+        }
+        var area = $("#areaShow input[type=checkbox]:checked").length;
+        if(area<1){
+            alert('请选择通知的区域');
+            return false;
+        }
+        var checkArea = $("#areaShow input[type=checkbox]:checked");
+        var strCode ='';
+        $.each(checkArea,function(k,v){
+            strCode+=','+ $(this).attr('id');
+        });
+        $("input[name=selectCode]").val(strCode);
+
+        /*验证分类、频道、标题为必填*/
+        var topicTitle = $('input[id=data-title]').val();
+        if($.trim(topicTitle)==''){
+            alert('请填写通知标题');
+            return false;
+        }
+        var content = $("#editor").val();
+        if($.trim(content)==''){
+            alert('请填写通知内容');
+            return false;
+        }
+        /*验证封面是否上传*/
+        var hasCover = $('#check-hover label input[type=radio]:checked').val(),
+            _csrfToken = $('input[name=_csrf-backend]').val();
+        var intercept = true;
+        if(hasCover==1){/**/
+            /*需要上传图片 ajax 验证已上传数量大于0 1或3*/
+            $.ajax({
+                url:'check-cover-num',
+                async:false,
+                type: 'post',                          /*post 提交*/
+                data: {'_csrf-backend':_csrfToken},
+                dataType:'text',                     /*返回文本格式的数据*/
+                success: function(data){
+                    switch(data){
+                        case '0':
+                            alert('您还没有上传封面!');
+                            intercept = false;
+                            break;
+                        case '1':
+                            intercept = true;
+                            break;
+                        case '2':/*上传封面为两张*/
+                            alert('请上传1张或者3张封面!');
+                            intercept = false;
+                            break;
+                    }
+                },
+                error: function(){          /*请求错误*/
+                    alert("请求未能成功");
+                    intercept = false;
+                }
+            });
+        }
+        if(!intercept){
+            return false;
+        }
+
+    }
+    $('#check-hover label').click(function(){
+        $('#check-hover label').removeClass('checked');
+        $(this).addClass('checked');
+        var val = $(this).children('input').val();
+        if(val==1){
+            $('.imgs').show();
+        }else{
+            $('.imgs').hide();
+        }
+    });
+
+    function openArea(o){
+        var show =  $("#areaShow").css('display');
+        if(show=='none'){
+            $(o).text('关闭');
+            $("#areaShow").css('display','block');
+        }else{
+            $(o).text('展开');
+            $("#areaShow").css('display','none');
+        }
+    }
+
+</script></body>
+</html>
