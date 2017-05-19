@@ -15,6 +15,7 @@ window.onload = function() {
     var iframe_arr = ["Amenu_manage.html", "Aroles_manage.html", "Aaccount_manage.html", "Asystem_log.html",
             "Bhome_subject.html", "Bgov_class.html", "Bportal_class.html", "Bevents_pages.html", "Bclient_notice.html", "Bbg_notice.html",
             "Csubject_info.html", "Csubject_add.html", "Csubject_review.html", "Cweight_set.html",
+            "Gportal_article.html", "Ggov_acticle.html",
             "Dincome_statistics.html", "Dcomsume.html", "Dwithdraw_apply.html", "Drecharge_apply.html", "Dred_packets.html",
             "Eupload_table.html",
             "Farticle_report.html", "Fsubject_report.html"
@@ -46,10 +47,13 @@ window.onload = function() {
                     num = 14;
                     break;
                 case 4:
-                    num = 19;
+                    num = 16;
+                    break;
+                case 5:
+                    num = 21;
                     break;
                 default:
-                    num = 20;
+                    num = 22;
             }
             oIframe.setAttribute("src", "../html/" + iframe_arr[num]);
             aLeftDiv[this.index].className = "active_leftitem";

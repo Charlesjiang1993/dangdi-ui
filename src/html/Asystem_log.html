@@ -2,76 +2,51 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>系统日志</title>
+    <link rel="stylesheet" href="../styles/common.css">
 <body>
-
 <div class="wrap">
-
     <div class="container">
-        <style>
-.container {
-    width: 100%;
-}
-.ibox-title{
-    border-style: none;
-}
-.c_r{
-    color: red;
-}
-.c_green{
-    color: #48ab42;
-}
-</style>
-<div class="col-sm-12" >
-    <div class="ibox float-e-margins">
-                <div class="ibox-title" style="font-size: 12px;">
-            当前位置》系统管理》系统日志&nbsp; &nbsp;
-<!--            <a href="index" role="button" class="btn btn-default ">日志管理</a>-->
-            <div style="width:510px;display:inline;float:right;">
+    <div class="box float-e-margins">
+            <div class="box-title"style="width:510px;display:inline;">
                 <form action="index" method="get">
-                    <button type="submit" style="float: right"  role="button" class="btn btn-default  fr">搜索</button>
-                    <input type="text" name="keywords" value="" class="form-control fr" style="float: right;width:200px;display:inline;" placeholder="关键字" />
 
-                    <select name="results"  class="form-control fr"  style="width:200px;display:inline;float: right;">
+                    <input type="text" name="keywords" value="" class="form-contro" style="" placeholder="关键字" />
+
+                    <select name="results"  class="form-control">
                         <option value="">请选择执行结果</option>
                         <option value="success" >success</option>
                         <option value="error" >error</option>
                     </select>
-
-                    <select name="type"  class="form-control fr"  style="width: 200px;display: inline;float: left;margin-top: -34px;margin-left: -143px;">
+                    
+                    <select name="type"  class="form-control"  >
                         <option value="">请选择账号类型</option>
                         <option  value="manager" >系统管理员</option>
                         <option  value="1" >政府账号</option>
                         <option  value="2" >第三方账号</option>
                     </select>
-
+                    <button type="submit"  role="button" class="btn btn-default">搜索</button>
                 </form>
-            </div>
         </div>
         
-        <div class="ibox-content h650" style="min-height:1000px">
+        <div class="box-content">
         <form action="all-delete" method="post" onsubmit="return check()">
-            <input class="token" type="hidden" value="QXVvNHY1Wkx2PyNXH18FIgglNXUucBkUEBsqXhsALRUuNl1mPFctFA==" name="_csrf-backend" />
-            <table class="table table-striped table-bordered table-hover  dataTable">
+            <table id="tables" class="table table-striped table-bordered table-hover  dataTable">
                 <thead>
-                <tr>
-
-                    <th>序号</th>
-
-                    <th >详情</th>
-                    <th>ip</th>
-                  <th>操作时间</th>
-                </tr>
+                    <tr>
+                        <th>序号</th>
+                        <th >详情</th>
+                        <th>ip</th>
+                      <th>操作时间</th>
+                    </tr>
                 </thead>
                 <tbody>
-                                    <tr class="do-show">
-
-                        <td>1</td>
-  
-                        <td class="c_green">登录成功</td>
-                        <td>118.116.110.139</td>
-                  <td>2017-05-15 17:07:08</td>
-                    </tr>
+                        <tr class="do-show">
+                            <td>1</td>
+                            <td class="c_green">登录成功</td>
+                            <td>118.116.110.139</td>
+                            <td>2017-05-15 17:07:08</td>
+                        </tr>
                     <tr class="do-show">
                         <td>2</td>
                         <td class="c_green">退出登录</td>
@@ -152,7 +127,22 @@
 
             </table>
             </form>
-            <div class="footer" style="float:right;width:100%;min-width:600px;position:relative;z-index:1;"><span style="display:inline-block;position:absolute;top:0;right:0;"><a style="font-size:13px;" href="/logs/index?keywords=&results=&type=&page=224" onclick="">尾页</a></span><span style="display:inline-block;position:absolute;top:0;right:40px;"><a style="font-size:13px;" href="/logs/index?keywords=&results=&type=&page=2" onclick="">下一页</a></span><ul><li style="display:inline-block;position:absolute;top:0;right:230px;list-style:none;" class="active"><a style="font-size:13px;border-bottom:1px solid #aaa;color:#aaa;" href="/logs/index?keywords=&results=&type=&page=1" onclick="">1</a></li><li style="display:inline-block;position:absolute;top:0;right:210px;list-style:none;" ><a style="font-size:13px;" href="/logs/index?keywords=&results=&type=&page=2" onclick="">2</a></li><li style="display:inline-block;position:absolute;top:0;right:190px;list-style:none;" ><a style="font-size:13px;" href="/logs/index?keywords=&results=&type=&page=3" onclick="">3</a></li><li style="display:inline-block;position:absolute;top:0;right:170px;list-style:none;" ><a style="font-size:13px;" href="/logs/index?keywords=&results=&type=&page=4" onclick="">4</a></li><li style="display:inline-block;position:absolute;top:0;right:150px;list-style:none;" ><a style="font-size:13px;" href="/logs/index?keywords=&results=&type=&page=5" onclick="">5</a></li><li style="display:inline-block;position:absolute;top:0;right:130px;list-style:none;" ><a style="font-size:13px;" href="/logs/index?keywords=&results=&type=&page=6" onclick="">6</a></li><li style="display:inline-block;position:absolute;top:0;right:110px;list-style:none;" ><a style="font-size:13px;" href="/logs/index?keywords=&results=&type=&page=7" onclick="">7</a></li><li style="display:inline-block;position:absolute;top:0;right:90px;list-style:none;" ><a style="font-size:13px;" href="/logs/index?keywords=&results=&type=&page=8" onclick="">8</a></li></ul></div>        </div>
+            <div class="footer" style="">
+                <ul>
+                    <li><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">4</a></li>
+                    <li><a href="">5</a></li>
+                    <li><a href="">6</a></li>
+                    <li><a href="">7</a></li>
+                    <li><a href="">8</a></li>
+                </ul>
+                <span><a href="">下一页</a></span>
+                <span><a href="">尾页</a></span>
+
+            </div>        
+        </div>
     </div>
 </div>
 </div>
