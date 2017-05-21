@@ -3,38 +3,20 @@
 <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="../styles/common.css">
+    <script src="../js/common.js"></script>
 </head>
-<body class="gray-bg">
-<div class="wrapper wrapper-content animated fadeInRight" style="height: 800px"> 
-<style>
-    .form-horizontal .control-label {
-        text-align: left;
-         width: 100px;
-    }
-    .c_r{
-        color: red;
-    }
-</style>
-    <div style="background: #fff;padding-bottom: 20px;min-height: 620px" class="col-sm-12" >
-        <br>
-        当前位置》全站内容设置》订阅号文章分类》添加分类  &nbsp; &nbsp;<a href="#" onclick="javascript:history.back(-1)">返回首页</a>
-<!--        <a href="index" role="button" class="btn btn-default btn-sm">分类管理</a>-->
-<!--        <a href="javascript:void(0);" role="button" class="btn btn-primary btn-sm">添加分类</a>-->
-        <hr />
-        <form id="formt" name="form1" action="create"  method="post"  class="form-horizontal">
-            <input type="hidden" value="ZVBMeWQtN2oqJBYhFXpPPD9gLx4VYBojExd1GxxvfTg8HjhME0BwIw==" name="_csrf-backend" />
-            <input type="hidden" name="scene" value="government">
-
-<!---->
-<!--            <div class="form-group">-->
-<!--                <label class="col-sm-3 control-label">选择所属分类<span class="c_r">*</span></label>-->
-<!--                <div id="typeDiv" class="col-sm-3">-->
-<!--                    --><!--                </div>-->
-<!--            </div>-->
-
-
+<body>
+<div class="box"> 
+        <div class="box-title">
+          当前位置》全站内容设置》订阅号文章分类》添加分类  &nbsp; &nbsp;
+          <a href="#" onclick="javascript:history.back(-1)">返回首页</a>
+          <hr/>
+        </div>
+        <div class="box-content">
+        <form id="forms" name="form1" action="create"  method="post"  class="form-horizontal">
+          
             <div class="form-group">
-                <label class="col-sm-3 control-label">分类名<span class="c_r">&nbsp;&nbsp;*</span></label>
                 <div class="col-sm-3">
                     <label for="data-title" class="sr-only">分类名</label>
                     <input id="data-title" type="text" name="param[name]" class="form-control"
@@ -44,24 +26,16 @@
 
 
             <div class="form-group">
-                <label class="col-sm-3 control-label">排序<span class="c_r">&nbsp;&nbsp;*</span></label>
                 <div class="col-sm-3">
                     <label for="data-title" class="sr-only">排序</label>
                     <input style="height: 33px;width: 129px;text-align: center;font-size: 15px;" value="1" type="number" name="param[sortOrder]" placeholder="">
                 </div>
             </div>
-<!--            <div class="form-group">-->
-<!--                <label class="col-sm-3 control-label">是否推荐</label>-->
-<!--                <div class="col-sm-3">-->
-<!--                    <input checked type="radio" name="param[level]" value="1">推荐-->
-<!--                    <input type="radio" name="param[level]" value="0">不推荐-->
-<!--                </div>-->
-<!--            </div>-->
 
             <div class="form-group">
-                <label class="col-sm-3 control-label">选择区域</label>
-                <div class="col-sm-3" style="width: 80%;">
-                    <a onclick="openArea(this)" class="btn btn-primary btn-sm">展开</a>
+                <label class="control-label">选择区域</label>
+                <div class="">
+                    <a onclick="openArea(this)" class="">展开</a>
                     <div id="areaShow" style="display: none;"> <a onclick="$('input[type=checkbox]').prop('checked',true);">全选</a><a onclick="$('input[type=checkbox]').prop('checked',false);">取消</a><div class='province'><div class='checkBox'><input onclick='checkThis(this)' id='11' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='11' class='areaName' onclick='getSon(this)'>北京市</a>
                            <p id='areaSon'></p>
                          </div><div class='checkBox'><input onclick='checkThis(this)' id='12' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='12' class='areaName' onclick='getSon(this)'>天津市</a>
@@ -132,36 +106,34 @@
                            <p id='areaSon'></p>
                          </div><div class='checkBox'><input onclick='checkThis(this)' id='91' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='91' class='areaName' onclick='getSon(this)'>汉东省</a>
                            <p id='areaSon'></p>
-                         </div></div><script>
-                   function checkThis(o){
-                   var isClick = $(o).attr('isClick');
-                   if(isClick=='true'){
-                   $(o).attr('isClick','false');
-                   }else{
-                   $(o).next().next().children().remove();;
-                   $(o).attr('isClick','true');
-                   }
-                   }
-                   </script></div>
+                         </div></div>
+                         <!-- <script>
+                         function checkThis(o){
+                         var isClick = $(o).attr('isClick');
+                         if(isClick=='true'){
+                         $(o).attr('isClick','false');
+                         }else{
+                         $(o).next().next().children().remove();;
+                         $(o).attr('isClick','true');
+                         }
+                         }
+                         </script> -->
+                  </div>
                 </div>
             </div>
-
-
-
-              <input type="hidden" value="" name="selectCode">
 
             <hr />
-            <div class="form-group">
-                <label class="col-sm-3 control-label">&nbsp;</label>
-                <div class="col-sm-3">
-                    <a href="#" onclick="javascript:history.back(-1)" role="button" class="btn btn-sm btn-warning">返回列表</a>
-                    <button onclick="checkForm()" type="button" name="dosubmit" value="提交" class="btn btn-sm btn-primary">提交（OK）</button>
-                </div>
+            <div class="form-submit">
+                
+                <button onclick="checkForm()" type="button" name="dosubmit" value="提交" class="">提交（OK）</button>
+                <a href="#" onclick="javascript:history.back(-1)" role="button" class="">返回列表</a>
             </div>
+
         </form>
+        </div>
     </div>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
     function checkForm(){
            var selectType = $("#typeDiv select").val(),typeName=$("#data-title").val(),checkArea = $("input[type=checkbox]:checked");
@@ -196,6 +168,6 @@
         }
 
     }
-</script></div>
+</script> -->
 </body>
 </html>

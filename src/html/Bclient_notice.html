@@ -4,39 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <title>C端系统通知</title>
+    <link rel="stylesheet" href="../styles/common.css">
+   <script src="../js/common.js"></script>
 </head>
 <body>
-
-<div class="wrap">
-
-    <div class="container">
-        
-
-<style>
-.container {width: 100%;}
-.ibox-title{
-border-style: none;
-    font-size: 12px;
-}
-</style>
-
-<div class="col-sm-12">
-    <div class="ibox float-e-margins">
-        <div class="ibox-title">
-            当前位置》全站内容设置》系统通知  &nbsp; &nbsp;<a href="Badd_system_notice.html">发布系统通知</a>
-<!--            <a href="index" role="button" class="btn btn-default ">通知列表</a>-->
-<!--            <a href="create" role="button" class="btn btn-success ">发布通知</a>-->
-            <div style="width:885px;display:inline;float:right;">
-                <form style="float: right;margin-top: -10px;" action="index" method="post">
+<div>
+    <div class="box">
+        <div class="box-title">
+           <a href="Badd_system_notice.html">发布系统通知</a>
+            <div>
+                <form id="forms" action="index" method="post">
                     <input type="hidden" value="WkF4SDZuQTkVNSIQRzk5bwBxGy9HI2xwLAZBKk4sC2sDDwx9QQMGcA==" name="_csrf-backend">
                     <button style=" margin-top: 1.5px;" type="submit"  role="button" class="btn btn-default  fr">搜索</button>
                     <input type="text" name="param[noticeTitle]" value="" class="form-control fr" style="width:385px;display:inline;" placeholder="通知标题，支持模糊查询" />
                 </form>
             </div>
         </div>
-        <div class="ibox-content h650" >
-            <input class="token" type="hidden" value="WkF4SDZuQTkVNSIQRzk5bwBxGy9HI2xwLAZBKk4sC2sDDwx9QQMGcA==" name="_csrf-backend" />
-            <table class="table table-striped table-bordered table-hover  dataTable">
+        <div class="box-content" >
+            <table id="tables" class="table">
                 <thead>
                 <tr>
                     <th>序号</th>
@@ -47,7 +32,7 @@ border-style: none;
                 </tr>
                 </thead>
                 <tbody>
-                                    <tr>
+                    <tr>
                         <td>45971</td>
                         <td>版本功能说明</td>
                         <td>&lt;h1 label=&q...</td>
@@ -63,7 +48,7 @@ border-style: none;
             </table>
 
             <div style="float: right" class="fr">
-                            </div>
+            </div>
             <div style="clear: both"></div>
         </div>
     </div>
@@ -73,17 +58,6 @@ border-style: none;
     </div>
 </div>
 
-
-<script src="/statics/layout/js/jquery.min.js?v=2.1.4"></script>
-<script src="/statics/layout/js/bootstrap.min.js?v=3.3.5"></script>
-<script src="/statics/layout/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="/statics/layout/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-<script src="/statics/layout/js/plugins/layer/layer.min.js"></script>
-<script src="/statics/layout/js/hplus.min.js?v=4.0.0"></script>
-<script src="/statics/layout/js/contabs.min.js"></script>
-<script src="/statics/layout/js/plugins/pace/pace.min.js"></script>
-<script src="/statics/plugins/uploadeImg/jquery-form.js"></script>
-<script src="/js/reLogin.js"></script>
 <script type="text/javascript">
     $('.a_num').blur(function(){
         var v= $.trim($(this).val());
@@ -140,5 +114,6 @@ border-style: none;
 
 
 
-</script></body>
+</script>
+</body>
 </html>

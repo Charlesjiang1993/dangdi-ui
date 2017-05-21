@@ -6,24 +6,14 @@
    <title>后台通知</title>
    <link rel="stylesheet" href="../styles/common.css">
    <script src="../js/common.js"></script>
-    
+</head> 
 <body>
-
-<div class="wrap">
-
-    <div class="container">
-        
-<style>
-    .container {
-       width: 100%;
-    }
-</style>
-<div class="col-sm-12">
-    <div class="ibox float-e-margins">
-        <div class="ibox-title" style="font-size: 12px;border: none;">
-            当前位置》传送门账号管理》站内通知  &nbsp; &nbsp;<a href="Badd_notice.html">发布站内通知</a>
-            <div style="width:1210px;display:inline;float:right;margin-right: -538px;margin-top: -9px;">
-                <form action="tell" method="get">
+<div>
+    <div class="box">
+        <div class="box-title">
+            <a href="Badd_notice.html">发布站内通知</a>
+            <div>
+                <form id="forms" action="tell" method="get">
                     <button type="submit"  role="button" class="btn btn-default  fr">搜索</button>
                     <input type="hidden" name="_csrf-backend" value="MkhUYzNWdUwFAhgAWjwqInsYDiJrEzYUYyYRCV5jAhVdC2YxeTQCFA==">
                     <select name="isRead"  class="form-control fr"  style="width:200px;display:inline;">
@@ -38,22 +28,21 @@
             </div>
         </div>
 
-        <div class="ibox-content h650">
-                        <table class="table table-striped table-bordered table-hover  dataTable">
+        <div class="box-content">
+            <table id="tables" class="table">
                 <thead>
                 <tr>
                     <th>序号</th>
                     <th>标题</th>
                     <th>内容</th>
-
                     <th>传送门</th>
                     <th>时间</th>
                     <th>是否阅读</th>
                     <th>操作</th>
                 </tr>
                 </thead>
+
                 <tbody>
-                
                     <tr>
                         <td>2711</td>
                         <td style="font-size: 14px;">当地在线v1.5版本全新上线。</td>
@@ -99,9 +88,7 @@
                     <tr>
                         <td>2681</td>
                         <td style="font-size: 14px;">当地在线v1.5版本全新上线</td>
-<!--                        <td>--><!--</td>-->
                         <td><p>当地在线v1.5版本全新上线。</p></td>
-<!--                        <td>--><!--</td>-->
                         <td>鱼羊密史</td>
                         <td>未读</td>
                         <td>2017-03-29</td>
@@ -115,9 +102,7 @@
                     <tr>
                         <td>2671</td>
                         <td style="font-size: 14px;">当地在线v1.5版本全新上线</td>
-<!--                        <td>--><!--</td>-->
                         <td><p>当地在线v1.5版本全新上线。</p></td>
-<!--                        <td>--><!--</td>-->
                         <td>高斯文化传媒</td>
                         <td>未读</td>
                         <td>2017-03-29</td>
@@ -131,9 +116,7 @@
                     <tr>
                         <td>2661</td>
                         <td style="font-size: 14px;">当地在线v1.5版本全新上线</td>
-<!--                        <td>--><!--</td>-->
                         <td><p>当地在线v1.5版本全新上线。</p></td>
-<!--                        <td>--><!--</td>-->
                         <td>马桶喜剧</td>
                         <td>未读</td>
                         <td>2017-03-29</td>
@@ -147,9 +130,7 @@
                     <tr>
                         <td>2651</td>
                         <td style="font-size: 14px;">当地在线v1.5版本全新上线</td>
-<!--                        <td>--><!--</td>-->
                         <td><p>当地在线v1.5版本全新上线。</p></td>
-<!--                        <td>--><!--</td>-->
                         <td>饭醉团伙</td>
                         <td>未读</td>
                         <td>2017-03-29</td>
@@ -163,9 +144,7 @@
                     <tr>
                         <td>2641</td>
                         <td style="font-size: 14px;">当地在线v1.5版本全新上线</td>
-<!--                        <td>--><!--</td>-->
                         <td><p>当地在线v1.5版本全新上线。</p></td>
-<!--                        <td>--><!--</td>-->
                         <td>食城记</td>
                         <td>未读</td>
                         <td>2017-03-29</td>
@@ -179,9 +158,7 @@
                     <tr>
                         <td>2631</td>
                         <td style="font-size: 14px;">当地在线v1.5版本全新上线</td>
-<!--                        <td>--><!--</td>-->
                         <td><p>当地在线v1.5版本全新上线。</p></td>
-<!--                        <td>--><!--</td>-->
                         <td>面包新语四川</td>
                         <td>未读</td>
                         <td>2017-03-29</td>
@@ -195,9 +172,7 @@
                     <tr>
                         <td>2621</td>
                         <td style="font-size: 14px;">当地在线v1.5版本全新上线</td>
-<!--                        <td>--><!--</td>-->
                         <td><p>当地在线v1.5版本全新上线。</p></td>
-<!--                        <td>--><!--</td>-->
                         <td>青春成都政务</td>
                         <td>未读</td>
                         <td>2017-03-29</td>
@@ -210,14 +185,23 @@
                 
                 </tbody>
             </table>
-            <div class="footer" style="float:right;width:100%;min-width:600px;position:relative;z-index:1;"><span style="display:inline-block;position:absolute;top:0;right:0;"><a style="font-size:13px;" href="/notices/tell?tellTitle=&subject&&isRead=&page=20" onclick="">尾页</a></span><span style="display:inline-block;position:absolute;top:0;right:40px;"><a style="font-size:13px;" href="/notices/tell?tellTitle=&subject&&isRead=&page=2" onclick="">下一页</a></span><ul><li style="display:inline-block;position:absolute;top:0;right:230px;list-style:none;" class="active"><a style="font-size:13px;border-bottom:1px solid #aaa;color:#aaa;" href="/notices/tell?tellTitle=&subject&&isRead=&page=1" onclick="">1</a></li><li style="display:inline-block;position:absolute;top:0;right:210px;list-style:none;" ><a style="font-size:13px;" href="/notices/tell?tellTitle=&subject&&isRead=&page=2" onclick="">2</a></li><li style="display:inline-block;position:absolute;top:0;right:190px;list-style:none;" ><a style="font-size:13px;" href="/notices/tell?tellTitle=&subject&&isRead=&page=3" onclick="">3</a></li><li style="display:inline-block;position:absolute;top:0;right:170px;list-style:none;" ><a style="font-size:13px;" href="/notices/tell?tellTitle=&subject&&isRead=&page=4" onclick="">4</a></li><li style="display:inline-block;position:absolute;top:0;right:150px;list-style:none;" ><a style="font-size:13px;" href="/notices/tell?tellTitle=&subject&&isRead=&page=5" onclick="">5</a></li><li style="display:inline-block;position:absolute;top:0;right:130px;list-style:none;" ><a style="font-size:13px;" href="/notices/tell?tellTitle=&subject&&isRead=&page=6" onclick="">6</a></li><li style="display:inline-block;position:absolute;top:0;right:110px;list-style:none;" ><a style="font-size:13px;" href="/notices/tell?tellTitle=&subject&&isRead=&page=7" onclick="">7</a></li><li style="display:inline-block;position:absolute;top:0;right:90px;list-style:none;" ><a style="font-size:13px;" href="/notices/tell?tellTitle=&subject&&isRead=&page=8" onclick="">8</a></li></ul></div>            <div style="clear: both"></div>
+            <div class="footer">
+                <span style="display:inline-block;position:absolute;top:0;right:0;"><a href="" onclick="">尾页</a></span>
+                <span style="display:inline-block;position:absolute;top:0;right:40px;"><a href="" onclick="">下一页</a></span>
+                <ul>
+                    <li style="display:inline-block;position:absolute;top:0;right:230px;" class="active"><a style="" href="" onclick="">1</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:210px;" ><a href="" onclick="">2</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:190px;" ><a href="" onclick="">3</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:170px;" ><a href="" onclick="">4</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:150px;" ><a href="" onclick="">5</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:130px;" ><a href="" onclick="">6</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:110px;" ><a href="" onclick="">7</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:90px;" ><a href="" onclick="">8</a></li>
+                </ul>
+            </div>           
+            <span style="clear: both"></span>
         </div>
     </div>
 </div>
-</div>
-
-    </div>
-</div>
-
 </body>
 </html>

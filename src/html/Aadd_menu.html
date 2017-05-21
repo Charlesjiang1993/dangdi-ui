@@ -3,48 +3,59 @@
 <head>
 	<meta charset="UTF-8">
 	<title>新增菜单</title>
-            <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/common.css">
+    <script src="../js/common.js"></script>
+    <style>
+        .t_left{width: 180px;}
+        .t_center{width: 250px;}
+        .t_right{width: 180px;}
+
+    
+
+    </style>
 </head>
 <body>
-	<div id="title">当前位置》系统管理》菜单管理》添加菜单  &nbsp; &nbsp;
-                    <a href="Amenu_manage.html">返回首页</a>
-            </div>
-	<form name="frmAddMenu" action="" method="post" >
+    <div class="box">
+	    <div class="box-title">当前位置》系统管理》菜单管理》添加菜单  &nbsp; &nbsp;
+            <a href="Amenu_manage.html">返回首页</a>
+            <hr>
+        </div>
+	   <form id="forms" name="frmAddMenu" action="" method="post" >
                 <table  id="tables" >
                     <tbody>
                     <tr>
                         <th class="t_left"><span class=""></span>上级菜单</th>
-                        <td>
-                            <select style="height: 35px;" id="parentid" class="form-control" name="Menu[parentid]">
+                        <td class="t_center">
+                            <select class="form-control" name="Menu[parentid]">
                                 <option value="0">顶级菜单</option>
-                                                                <option value="30">传送门账号主体管理</option>
-                                                                <option value="22">传送门账号管理</option>
-                                                                <option value="4">全站内容设置</option>
-                                                                <option value="91">内容管理</option>
-                                                                <option value="71">测试区域查询接口</option>
-                                                                <option value="61">测试顶级菜单</option>
-                                                                <option value="24">特征管理</option>
-                                                                <option value="11">用户管理</option>
-                                                                <option value="1">系统管理</option>
-                                                                <option value="25">统计管理</option>
-                                                                <option value="27">账户管理</option>
-                                                                <option value="21">门伴管理</option>
+                                <option value="30">传送门账号主体管理</option>
+                                <option value="22">传送门账号管理</option>
+                                <option value="4">全站内容设置</option>
+                                <option value="91">内容管理</option>
+                                <option value="71">测试区域查询接口</option>
+                                <option value="61">测试顶级菜单</option>
+                                <option value="24">特征管理</option>
+                                <option value="11">用户管理</option>
+                                <option value="1">系统管理</option>
+                                <option value="25">统计管理</option>
+                                <option value="27">账户管理</option>
+                                <option value="21">门伴管理</option>
                              </select>
                         </td>
                         <td class="t_right"></td>
                     </tr>
                     <tr>
                         <th class="t_left">菜单名称</th>
-                        <td>
+                        <td class="t_center">
                             <label for="name" class="sr-only">菜单名称</label>
-                            <input id="name" type="text" name="Menu[name]" class="form-control input-sm"
+                            <input id="name" type="text" name="Menu[name]" class="form-control"
                                    value="" placeholder="请输入菜单名称" required autofocus />
                         </td>
                         <td class="t_right">管理菜单名称</td>
                     </tr>
                     <tr class="tagMenu">
                         <th class="t_left"><span class=""></span>控制器类</th>
-                        <td>
+                        <td class="t_center">
                             <label for="controller" class="sr-only">控制器类</label>
                             <input id="controller" disabled type="text" name="Menu[controller]" class=""
                                    value="" placeholder="请输入控制器类" />
@@ -53,7 +64,7 @@
                     </tr>
                     <tr class="tagMenu">
                         <th class="t_left"><span class=""></span>操作方法</th>
-                        <td>
+                        <td class="t_center">
                             <label for="action" class="">菜单名称</label>
                             <input id="action" disabled type="text" name="Menu[action]" class=""
                                    value="" placeholder="请输入操作方法" />
@@ -61,8 +72,8 @@
                         <td class="t_right">操作事件/方法</td>
                     </tr>
                     <tr>
-                        <th class="t_left" style="padding: 5px">显示状态</th>
-                        <td>
+                        <th class="t_left">显示状态</th>
+                        <td class="t_center">
                             <div class="radio input-sm">
                                 <label>
                                     <input type="radio" name="Menu[display]" value="1" checked />菜单可用
@@ -76,8 +87,13 @@
                     </tr>
                     </tbody>
                 </table>
-                <button type="submit" name="dosubmit" value="提交" class="">提交（OK）</button>
-                <a href="javascript:history.back(-1);" role="button" class="">返回列表</a>
+                <div class="form-submit">
+                    <button type="submit" name="dosubmit" value="提交" class="submit-button">提交（OK）</button>
+                    <a href="javascript:history.back(-1);" role="button" class="">返回列表</a>
+                    
+                </div>
+                
         </form>
+    </div>        
 </body>
 </html>

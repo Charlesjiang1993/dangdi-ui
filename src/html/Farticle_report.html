@@ -3,53 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>文章举报</title>
-    <style>
-	*{margin: 0;padding: 0;list-style: none;}
-	body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
-	dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
-	pre, /* text formatting elements 文本格式元素 */
-	form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
-	th, td /* table elements 表格元素 */ {
-	  margin: 0;
-	  padding: 0;
-	}
-	html{width:100%;height:100%; font-size: 62.5%;}
-	body{width:100%;height:100%; }
-	.tab{
-		margin-top: 3rem;
-	    border-collapse: collapse;
-	    margin-left: 20px;
-	}
-	.tab td{
-		font-size: 2rem;
-	     border: 1px solid black;
-	    width: 120px;
-	    height: 30px;
-	}
-    </style>
+    <link rel="stylesheet" href="../styles/common.css">
+    <script src="../js/common.js"></script>
+
 </head>
-<body>
- 		<table class="tab">
-            <thead>
-                <td>序号</td>
-                <td>文章名称</td>
-                <td>举报类型</td>
-                <td>举报时间</td>
-                <td>操作</td>
-            </thead>
-            <tbody>
+<body>  
+    <div class="box">
+        <div class="box-title">
+            
+        </div>
+        <div class="box-content">
+            <table id="tables" class="table">
+                <thead>
                 <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td><a href="">删除</a></td>
-                </tr>       
-            </tbody>
-    </table>
+                    <th>序号</th>
+                    <th>文章名称</th>
+                    <th>举报类型</th>
+                    <th>举报时间</th>
+                    <th>操作</th>
+                </tr>
+                    
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td><a href="">删除</a></td>
+                    </tr>       
+                </tbody>
+            </table>
+        </div >
+    </div>
+ 		
 </body>
-<script src="../js/ajax.js"></script>
 <script>
+    $(function(){
+        var urlA;
+        if (location.href.includes(".net")) {
+            urlA = "http://passapi.dangdi.net/";
+        } else {
+            urlA = "http://passapi.dangdi.cn/";
+        }
+        $.ajax({
+            type:"post",
+            url:urlA+"report/list",
+            data:{
+                type:0,
+                page:1,
+                pageSize:10
+            },
+            success:function(data){
+                console.log(data)
+            }
+        })
+    })
+    
 	var createDate = function(n) {
         var oTr = document.createElement('tr');
         for (var i = 0; i < n - 1; i++) {

@@ -5,29 +5,32 @@ pre, /* text formatting elements 文本格式元素 */
 form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
 th, td /* table elements 表格元素 */ {margin: 0;padding: 0;}
 html,body{width:100%;height:100%}
-#forms .form-group{
-	margin-top: 15px;
-	overflow: hidden;
-}
-#forms .control-label{
-	float: left;
-	width: 6%;
-}
-#forms .form-value{float: left;}
-#tables{margin: 30px 0 30px 30px;border-collapse: collapse;}
-#tables thead{background: #F5F5F5;}
-	/* #tables th{width: 180px;}
-	#tables .t_right{width: 180px;}
-	#tables td{width: 360px;} */
-#tables th,tr,td{border: 1px solid black;}
-.box-title .form-control{vertical-align: middle;}
-.box-title a{
+
+/*box主体样式*/
+.box .box-title{padding: 20px 20px 0 20px;}
+.box .box-title .form-control{vertical-align: middle;}
+.box .box-title a{
 	color: white;
 	text-decoration: none;
-	padding: 0 2rem 0 2rem;
+	padding: 0 20px;
 	background:  #2678D4;
 }
+.box .box-content{padding: 20px 20px;}
+
+/* 表单基础样式 */
+#forms .form-group{margin-top: 15px;overflow: hidden;}
+#forms .control-label{float: left;width: 6%;}
+#forms .form-value{float: left;}
+#forms .form-submit{padding:  20px 20px;}
+
+/* 表格基础样式 */
+#tables{border-collapse: collapse;}
+#tables thead{background: #F5F5F5;}
+#tables th,tr,td{border: 1px solid black;}
+
+
+
+/* 页数样式 */
 .footer{
-	float:right;width:100%;min-width:600px;position:relative;z-index:1;
+	float:right;width:100%;min-width:600px;position:relative;z-index:1;font-size:13px;
 }
-.footer span{}

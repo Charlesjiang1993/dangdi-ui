@@ -23,62 +23,72 @@ th, td /* table elements 表格元素 */ {
   padding-left:20px;
   padding-right: 20px;
 }
-html{width: 100%;  height: 100% ;font-size: 62.5%;}
-body{ width: 100%; min-width: 150rem;height: 100% }
+html{width: 100%;  height: 100% ;font-size: 62.5%;}body{width: 100%;  height: 100%}
+#container{
+  overflow: hidden;
+  width: 100%;height: 100%;min-width: 100rem;
+}
 #index_left{
     background-color:  #2F323A;
     height: 100%;
-    min-width: 20rem;
+    /*min-width: 20rem;*/
     width: 16%;
-    overflow: hidden;
+   /* overflow: hidden;*/
     float: left;
 }
 #index_left .active_leftitem{
     background: #2678D4;
 }
 #index_left div{
-    font-size: 2.5rem;
+    font-size: 2.4rem;
      cursor: default;
     color: white;
-   padding: 30px 0;
+   padding: 2rem 0;
 }
 #index_right{
     float: left;
     width: 84%;
-    min-width: 100rem;
+    /*min-width: 80rem;*/
     height: 100%;  
-    min-height: 60rem;  
+   /*min-height: 60rem;  */
 }
 #index_right .right_topdiv{
 width: 100%;height: 8%; vertical-align: middle;
 }
 #index_right .right_top{
-    float: right;margin:1rem  2rem  0 0;
+    float: right;margin:1rem 2rem 0 0;
     font-size: 2.5rem;
 }
 #index_right .right_top .right_topitem{vertical-align: middle;padding: 0;margin-left: 1rem;}
 #index_right .right_middle {
     font-size: 2rem;
     background: #F5F5F5;
-    overflow: hidden;
+    vertical-align: middle;
+    /*overflow: hidden;*/
     width: 100%;
-    height: 92%;
+    height: 8%;
 }
 #index_right .right_middle ul{
-    padding: 15px 0 15px 20px;
+    padding-top: 1.2rem;
+    padding-left: 2rem;
     display: none;
 }
 #index_right .right_middle li{
     cursor: default;
     display: inline;
-    margin-right: 10px;
+    margin-right: 1rem;
 }
 .activeli{
     color: #2678D4;
 }
+#index_right .right_bottom{
+  background: #F5F5F5;
+  height: 84%;
+}
+
 #iframebox{
-    margin: 0 2rem;
-    border: 1px solid black;
-    width: 97%;height: 90%;
+    border: 0.1rem solid black;
+    margin-left: 2rem;
+    width: 95%;height: 95%;
     background: white;
 }

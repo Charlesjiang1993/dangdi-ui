@@ -3,32 +3,30 @@
 <head>
     <meta charset="utf-8">
     <title>政府板块分类管理</title>
+    <link rel="stylesheet" href="../styles/common.css">
+    <script src="../js/common.js"></script>
 </head>
 
-<body class="gray-bg">
-<div class="wrapper wrapper-content animated fadeInRight" style="height: 800px">
-    
-        <div class="col-sm-12" >
-        <div class="ibox float-e-margins">
-            <div class="ibox-title" style="font-size: 12px;">
-                当前位置》全站内容设置》订阅号文章分类  &nbsp; &nbsp;<a href="Badd_class.html">添加分类</a>
-<!--                <a href="index" role="button" class="btn btn-default ">分类管理</a>-->
-<!--                <a href="create?scene=--><!--" role="button" class="btn btn-success">添加分类</a>-->
-            </div>
-            <div class="ibox-content h650">
-                <input class="token" type="hidden" value="OFBJS1AxYW13JBMTIWYZO2JgKiwhfEwkThdwKShzKz9hHj1.J1wmJA==" name="_csrf-backend" />
-                <table class="table table-striped table-bordered table-hover  dataTable">
-                    <thead>
+<body>
+<div>
+    <div class="box">
+        <div class="box-title">
+                <a href="Badd_class.html">添加分类</a>
+        </div>
+        
+        <div class="box-content">
+            
+            <table id="tables" class="table">
+                <thead>
                     <tr>
                         <th>序号</th>
                         <th>排序</th>
-<!--                        <th>分类代码</th>-->
                         <th>分类名称</th>
-<!--                        <th>是否推荐</th>-->
                         <th>操作</th>
                     </tr>
-                    </thead>
-                    <tbody>
+                </thead>
+
+                <tbody>
 
                  <tr><td>1</td><td>9</td><td>┠┈服务</td><td><a href="/txttypes/update?id=1891&scene=1" title="修改" class="glyphicon glyphicon-pencil" aria-hidden="true"></a>
                 <a href="javascript:deleteType(1891)" title="删除" class="glyphicon glyphicon-trash" aria-hidden="true"></a></td></tr><tr><td>2</td><td>8</td><td>┠┈简报</td><td><a href="/txttypes/update?id=1901&scene=1" title="修改" class="glyphicon glyphicon-pencil" aria-hidden="true"></a>
@@ -42,13 +40,12 @@
                 <a href="javascript:deleteType(2011)" title="删除" class="glyphicon glyphicon-trash" aria-hidden="true"></a></td></tr><tr><td>10</td><td>5</td><td>┠┈新闻</td><td><a href="/txttypes/update?id=2021&scene=1" title="修改" class="glyphicon glyphicon-pencil" aria-hidden="true"></a>
                 <a href="javascript:deleteType(2021)" title="删除" class="glyphicon glyphicon-trash" aria-hidden="true"></a></td></tr><tr><td>11</td><td>10</td><td>┠┈宣传</td><td><a href="/txttypes/update?id=2051&scene=1" title="修改" class="glyphicon glyphicon-pencil" aria-hidden="true"></a>
                 <a href="javascript:deleteType(2051)" title="删除" class="glyphicon glyphicon-trash" aria-hidden="true"></a></td></tr>
-                    </tbody>
-                </table>
+                </tbody>
+            </table>
 
             </div>
         </div>
         <!--end-->
-    </div>
     </div>
 <script type="text/javascript">
         var flag=false;
