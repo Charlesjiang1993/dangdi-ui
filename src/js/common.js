@@ -39,10 +39,10 @@
 	}
 
 	//隔行变色函数
-	function intervalcolor() {
-		var oTab = document.getElementById("tables");
-		var oTbody = oTab.getElementsByTagName("tbody")[0];
+	function intervalcolor(){
+		var oTbody = document.getElementsByTagName("tbody")[0];
 		var aTr = oTbody.getElementsByTagName("tr");
+		console.log(aTr.length)
 		for (var i = 0; i < aTr.length; i++) {
 			if (i % 2 == 0) {
 				aTr[i].style.background = '#F5F5F5';
@@ -63,7 +63,7 @@
 	}
 
 	//删除文章确认框
-	function del() {
+	function del(){
 		var msg = "确定要删除这篇文章吗？\n\n请确认！";
 		if (confirm(msg) == true) {
 			return true;
@@ -81,17 +81,12 @@
 		}
 	}
 
-	//尾页请求数据
-	var netPage = function(page) {
-
-	}
-
-	//请求数据方法
+	
+	//请求数据生成表格
 	var ajaxData;
-	var getData = function(json, callback) {
-		var aTh = document.getElementById("tables").getElementsByTagName("th");
+	var getData = function(json,callback) {
 		var oTbody = document.getElementsByTagName("tbody")[0];
-		ajax(json.method, json.url, json.data, function(data) {
+		ajax(json.method,json.url,json.data, function(data) {
 			console.log(data)
 			ajaxData = data;
 			if (data) {
@@ -99,3 +94,9 @@
 			}
 		})
 	}
+
+	// //点击尾页请求数据 json为ajax参数 dataNum为页码
+	// var nextPage = function(json,dataNum,setStr) {
+	// 	json.data= "type=" + 0 + "&page=" + dataNum + "&pageSize=" + 10;
+	// 	getData(json,setStr);
+	// }

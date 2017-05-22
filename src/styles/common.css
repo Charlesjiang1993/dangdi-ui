@@ -25,6 +25,7 @@ html,body{width:100%;height:100%}
 
 /* 表格基础样式 */
 #tables{border-collapse: collapse;width: 100%;}
+#tables tr{height: 40px}
 #tables thead{background: #F5F5F5;}
 #tables th,tr,td{border: 1px solid black;}
 

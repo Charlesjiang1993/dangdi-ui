@@ -42,32 +42,37 @@
             </div>      
         </div >
     </div>		
-</body>
+
 <script>
 window.onload=function(){
+    var ale=function() {
+            console.log("sss")
+        }
         var json = {
         "method": "POST",
         "url": urlA + "report/list",
         "data": "type=" + 0 + "&page=" + 1 + "&pageSize=" + 10, 
-        "options":"<a>冻结</a>",
         }
+        
         var setStr=function(ajaxData){
             var str = "";
             for (i in ajaxData) {
-                str += "<tr>" +
-                    "<td>" +ajaxData[i].no + "</td>" +
-                    "<td>" + ajaxData[i].title + "</td>" +
-                    "<td>" + ajaxData[i].typeName + "</td>" +
-                    "<td>" + ajaxData[i].reportDate+ "</td>" +
-                    "<td>" +  json.options+ "</td>" +
-                    "</tr>";
+                str += '<tr>' +
+                    '<td>' +ajaxData[i].no + '</td>' +
+                    '<td>' + ajaxData[i].title + '</td>' +
+                    '<td>' + ajaxData[i].typeName + '</td>' +
+                    '<td>' + ajaxData[i].reportDate+ '</td>' +
+                    '<td>' + '<a href="#">冻结</a>'+ '</td>' +
+                    '</tr>';
             }
             return str;
         }
         getData(json,setStr);
+        intervalcolor();
 }
 
         
 
 </script>
+</body>
 </html>
