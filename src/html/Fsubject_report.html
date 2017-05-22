@@ -24,32 +24,52 @@
                 
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td><a href="">删除</a></td>
-                </tr>       
             </tbody>
-    </table>
+        </table>
+        <div class="footer">
+                <span style="display:inline-block;position:absolute;top:0;right:0;"><a href="" onclick="">尾页</a></span>
+                <span style="display:inline-block;position:absolute;top:0;right:40px;"><a href="" onclick="">下一页</a></span>
+                <ul>
+                    <li style="display:inline-block;position:absolute;top:0;right:230px;" class="active"><a style="" href="" onclick="">1</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:210px;" ><a href="" onclick="">2</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:190px;" ><a href="" onclick="">3</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:170px;" ><a href="" onclick="">4</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:150px;" ><a href="" onclick="">5</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:130px;" ><a href="" onclick="">6</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:110px;" ><a href="" onclick="">7</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:90px;" ><a href="" onclick="">8</a></li>
+                </ul>
+            </div>      
+
     </div>
     
 </div>
  	
 </body>
-<script src="../js/ajax.js"></script>
 <script>
-	var createDate = function(n) {
-        var oTr = document.createElement('tr');
-        for (var i = 0; i < n - 1; i++) {
-            var oTd = document.createElement('td');
-            oTr.appendChild(oTd);
-        }
-        var oTd = document.createElement('td');
-        oTr.appendChild(oTd);
-        oTab.tBodies[0].appendChild(oTr);
+window.onload=function(){
+    var json = {
+        "method": "POST",
+        "url": urlA + "report/list",
+        "data": "type=" + 1+ "&page=" + 1 + "&pageSize=" + 10, 
+        "options":"<a>冻结</a>",
     }
+    var setStr=function(ajaxData){
+        var str = "";
+        for (i in ajaxData) {
+            str += "<tr>" +
+                "<td>" +ajaxData[i].no + "</td>" +
+                "<td>" + ajaxData[i].subject + "</td>" +
+                "<td>" + ajaxData[i].typeName + "</td>" +
+                "<td>" + ajaxData[i].reportDate+ "</td>" +
+                "<td>" +  json.options+ "</td>" +
+                "</tr>";
+        }
+        return str;
+    }
+    getData(json,setStr);
+}
+
 
 </script>
 </html>

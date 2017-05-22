@@ -1,12 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+    <meta charset="utf-8">   
+    <title>权重分设置</title>
     <link rel="stylesheet" href="../styles/common.css">
     <script src="../js/common.js"></script>
 </head>
 <body>
-    权重分设置
+    <div class="box">
+        <div class="box-title">
+                <form action="" method="get">
+                    <button type="submit"  role="button" class="btn">搜索</button>
+                    <input type="text" name="subject" value="" class="form-control fr" style="" placeholder="主体名称" />
+                </form>
+        </div>
+        <div class="box-content" >
+            
+            <table id="tables" class="table">
+                <thead>
+                <tr>
+                    <th>主体编号</th>
+                    <th>主体名称</th>
+                    <th>剩余权重分</th>
+                    <th>自动发布设置</th>
+                    <th>权重分设置</th>
+                </tr>
+                </thead>
+                <tbody>
+                      <tr>
+                        <td>3981</td>
+                        <td>阿萨德哈哈哈</td>
+                        <td>0</td>
+                        <td>当前状态:手动抓取&nbsp;&nbsp;<a partnerID="3981" auto="0" onclick="autoconf(this)">设为自动抓取</a></td>
+                        <td style="width: 30%">
+                              权重分设置: <input type="number" style="" placeholder="请输入您要设置的权重分">&nbsp;&nbsp;<a partnerID="3981" onclick="sure(this)">确认修改</a>
+                       </td>
+                    </tr>
+                    <tr>
+                        <td>3951</td>
+                        <td>成都莱珂教育咨询有限公司</td>
+                        <td>0</td>
+                        <td>当前状态:手动抓取&nbsp;&nbsp;<a partnerID="3951" auto="0" onclick="autoconf(this)">设为自动抓取</a></td>
+                        <td style="width: 30%">
+                              权重分设置: <input type="number" style="" placeholder="请输入您要设置的权重分">&nbsp;&nbsp;<a partnerID="3951" onclick="sure(this)">确认修改</a>
+                       </td>
+                    </tr>   
+                                    
+            </tbody>
+            </table>
+            <div class="footer">
+                <span style="display:inline-block;position:absolute;top:0;right:0;"><a href="" onclick="">尾页</a></span>
+                <span style="display:inline-block;position:absolute;top:0;right:40px;"><a href="" onclick="">下一页</a></span>
+                <ul>
+                    <li style="display:inline-block;position:absolute;top:0;right:230px;" class="active"><a style="" href="" onclick="">1</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:210px;" ><a href="" onclick="">2</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:190px;" ><a href="" onclick="">3</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:170px;" ><a href="" onclick="">4</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:150px;" ><a href="" onclick="">5</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:130px;" ><a href="" onclick="">6</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:110px;" ><a href="" onclick="">7</a></li>
+                    <li style="display:inline-block;position:absolute;top:0;right:90px;" ><a href="" onclick="">8</a></li>
+                </ul>
+            </div>      
+        </div>
+    </div>
+<script type="text/javascript">
+
+    function sure(o){
+        if(confirm("确认修改？")){
+            var pid = $(o).attr('partnerID'),weightScore = $(o).prev().val(),csrf = $("input[name=_csrf-backend]").val();
+            if($.trim(weightScore)==' '|| $.trim(weightScore)<0){
+                alert("请输入大于0的权重分");
+                return false;
+            }else{
+                $.ajax({
+                    url:'weight-score-update',
+                    type:'get',
+                    data:{'partnerID':pid,'weightScore':weightScore,"_csrf-backend":csrf},
+                    success:function(data){
+                        if(data==1){
+                            window.location.reload();
+                        }else{
+                            alert("修改失败");
+                        }
+                    },
+                    dataType:'text'
+                })
+
+
+            }
+        }
+    }
+
+    function autoconf(o){
+         if(confirm("确认变更?")){
+              var csrf = $("input[name=_csrf-backend]").val(),partnerID = $(o).attr('partnerID'),auto=$(o).attr("auto");
+             $.ajax({
+                 url:'update-auto',
+                 type:'get',
+                 data:{'partnerID':partnerID,'auto':auto,"_csrf-backend":csrf},
+                 success:function(data){
+                     if(data==1){
+                         window.location.reload();
+                     }else{
+                         alert("修改失败");
+                     }
+                 },
+                 dataType:'text'
+             })
+         }
+    }
+
+
+
+
+
+
+</script>
 </body>
 </html>

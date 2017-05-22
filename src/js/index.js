@@ -17,7 +17,7 @@ window.onload = function() {
             "Csubject_info.html", "Csubject_add.html", "Csubject_review.html", "Cweight_set.html",
             "Gportal_article.html", "Ggov_acticle.html",
             "Dincome_statistics.html", "Dcomsume.html", "Dwithdraw_apply.html", "Drecharge_apply.html", "Dred_packets.html",
-            "Eupload_table.html",
+            "Edoor_bind.html",
             "Farticle_report.html", "Fsubject_report.html"
         ]
         //左侧一级菜单功能

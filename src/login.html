@@ -29,8 +29,6 @@
                 </div>
                 <h3 >当地在线管理系统</h3>
                 <div role="tabpanel" class="tab-pane" id="profile">
-                    <input id="csrf" type="hidden" value="UVRNYW53WjYeIBc5HyAiYAtkLgYfOnd/JxN0AxY1EGQIGjlUGRodfw==">
-                    <input type="hidden" id="url" value="/login/login"/>
                     <div class="form-group">
                         <input id="username" type="text" class="form-control" value="" placeholder="用户名" required="">
                     </div>
@@ -41,14 +39,20 @@
                 </div>
         </div>
     </div>
-    <script src="js/ajax.js"></script>
+    <script src="./js/jquery.min.js"></script>
     <script>
-    window.onload=function(){
-        document.getElementById("login").onclick=function(){
-            var uname = document.getElementById("username").value;
-            var pwd = document.getElementById("password").value;
-            ajax("post",url,data,function(data){
-                if(data){
+    $(function(){
+        $("#login").onclick=function(){
+            var uname = $("#username").val();
+            var pwd = $("#password").val();
+            $.ajax({
+                url: '',
+                type: 'POST',
+                dataType: 'json',
+                data: {param1: 'value1'},
+            })
+            .done(function() {
+                 if(data){
                     switch (data) {
                                 case '1':
                                     window.location.href='../src/html/index.html';
@@ -81,8 +85,55 @@
                             }
                 }
             })
+            .fail(function() {
+                console.log("error");
+            })
+            .always(function() {
+                console.log("complete");
+            });
+            
         }
-    }
+    })
+    // window.onload=function(){
+    //     document.getElementById("login").onclick=function(){
+    //         var uname = document.getElementById("username").value;
+    //         var pwd = document.getElementById("password").value;
+    //         ajax("post",url,data,function(data){
+    //             if(data){
+    //                 switch (data) {
+    //                             case '1':
+    //                                 window.location.href='../src/html/index.html';
+    //                                 return false;
+    //                                 break;
+    //                             case '2':
+    //                                 alert("用户名不存在");
+    //                                 /*登录验证失败 用户名不存在*/
+    //                                 return false;
+    //                                 break;
+    //                             case '3' :
+    //                                 alert("密码错误");
+    //                                 /*登录验证密码失败*/
+    //                                 return false;
+    //                                 break;
+    //                             case '4' :
+    //                                 alert("异常请求");
+    //                                 /*异常请求 不是ajax处理*/
+    //                                 return false;
+    //                                 break;
+    //                             case '5' :
+    //                                 alert("此账号已被禁用");
+    //                                 /*账号禁用*/
+    //                                 return false;
+    //                                 break;
+    //                             case '6':
+    //                                 alert('没有设置默认的主体'); 
+    //                                 return false;
+    //                                 break;
+    //                         }
+    //             }
+    //         })
+    //     }
+    // }
 </script>
 </body>
 </html>

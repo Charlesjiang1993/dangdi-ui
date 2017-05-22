@@ -7,6 +7,106 @@
     <script src="../js/common.js"></script>
 </head>
 <body>
-    主体新增
+<div class="box">
+    <div class="box-content">
+        <form id="forms" name="form1" action="" method="post" >  
+        <div class="form-group">
+            <label class="control-label">当地ID</label>
+            <div class="form-value">
+                <input  type="text" name="param[userName]" class="form-control"
+                       value="" placeholder="请输入当地ID" required autofocus />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">微信号</label>
+            <div class="form-value">
+                <input  type="text"  name="param[wechatID]" class="form-control"
+                       value="" placeholder="请填写微信号"  autofocus />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">邮箱</label>
+            <div class="form-value">      
+                <input type="text" name="param[passWord]" class="form-control"
+                       value="" placeholder="请填写邮箱" required autofocus />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">主体类型</label>
+            <div class="form-value">
+                <select name="param[roleID]" class="form-control a-cate" autofocus="">
+                                            <option value="17">政务</option>
+                                           <option value="231">传送门</option> 
+                  </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">电话</label>
+            <div class="form-value">      
+                <input type="text" name="param[tel]" class="form-control"
+                       value="" placeholder="请填写电话" required autofocus />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">上传图标</label>
+            <div class="form-value">      
+                <input name="imgfile" type="file" id="imgfile" onchange="viewmypic(showimg,this.form.imgfile);" /> 
+                <img name="showimg" id="showimg" src=""  alt="预览图片" /> 
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">主体全称</label>
+            <div class="form-value">      
+                <input type="text" name="param[passWord]" class="form-control"
+                       value="" placeholder="请填写邮箱" required autofocus />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">主体简介</label>
+            <div class="form-value">      
+                <input type="text" name="param[passWord]" class="form-control"
+                       value="" placeholder="请填写邮箱" required autofocus />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">其他</label>
+            <div class="form-value">      
+                <input type="text" name="param[passWord]" class="form-control"
+                       value="" placeholder="请填写邮箱" required autofocus />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">选择区域</label>
+            <div class="form-value">      
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">状态</label>
+            <div class="">
+                <input checked name="param[isValid]" value="1" type="radio">开启 <input value="0" name="param[isValid]" type="radio">禁用
+            </div>
+        </div>
+  
+        <div class="form-group">
+            <div class="form-submit">
+                <button type="submit" name="dosubmit" value="提交" class="">提交</button>
+                <button>重置</button>
+            </div>
+        </div>
+    </form>
+    </div>
+    
+</div>
+       
 </body>
 </html>
