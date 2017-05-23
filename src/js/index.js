@@ -4,11 +4,12 @@ window.onload = function() {
     var oRight = document.getElementById('index_right');
     var aUl = oRight.getElementsByTagName('ul');
     var aLi = document.getElementsByTagName('li');
+    console.log("aLi.length="+aLi.length);
     var oIframe = document.getElementById('iframebox')
     var num = 0;
     //退出按钮功能
     document.getElementsByClassName('right_topdiv')[0].getElementsByTagName('button')[0].onclick = function() {
-            window.parent.location = '/src/login.html';
+            //清除session
             window.parent.location = '../login.html';
         }
         //跨域地址
@@ -23,14 +24,15 @@ window.onload = function() {
         //左侧一级菜单功能
     for (var i = 0; i < aLeftDiv.length; i++) {
         aLeftDiv[i].index = i;
-
         aLeftDiv[i].onclick = function() {
-
             for (var j = 0; j < aLeftDiv.length; j++) {
                 aLeftDiv[j].className = '';
             }
             for (var j = 0; j < aLi.length; j++) {
                 aLi[j].className = '';
+            }
+            for (var j = 0; j < aUl.length; j++) {
+                aUl[j].style.display = 'none';
             }
             aUl[this.index].getElementsByTagName('li')[0].className = 'activeli';
             switch (this.index) {
@@ -57,10 +59,6 @@ window.onload = function() {
             }
             oIframe.setAttribute("src", "../html/" + iframe_arr[num]);
             aLeftDiv[this.index].className = "active_leftitem";
-
-            for (var j = 0; j < aUl.length; j++) {
-                aUl[j].style.display = 'none';
-            }
             aUl[this.index].style.display = 'block';
 
         }
@@ -78,5 +76,8 @@ window.onload = function() {
             oIframe.setAttribute("src", "../html/" + iframe_arr[this.index]);
         }
     }
+
+    //用户名的值
+    // document.getElementById("userName").innerHTML=getsession("userName");
 
 }

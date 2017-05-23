@@ -9,45 +9,18 @@
 </head>
 <body>
 
-<div class="wrap">
-    <div class="container">
-        
-<style>
-    .file-upload{width: 92px;height: 92px;background: url(/statics/plugins/uploadeImg/img/upload.jpg) no-repeat;z-index: 5;overflow: hidden;}
-    .c_r{color: red}
-    .checkbox-inline{
-        border: 1px solid #c8c8c8;
-        border-radius: 2px;
-        color: #c2c2c2;
-        font-size: 13px;
-        width: 68px;
-        padding: 5px;
-    }
-    .checked{
-        color: rgb(247, 247, 247);
-        background-color: #1ab394;
-    }
-    .container {
-            width:100%;
-        }
-</style>
+<div class="box">
+    
+<div class="box-title">
+    当前位置》全站内容设置》系统通知》发布系统通知  &nbsp;  &nbsp; 
+    <a href="Bclient_notice.html">返回首页</a>
 
-<div style="background: #fff;padding-bottom: 20px;min-height: 620px" class="col-sm-12" >
-    <br>
-    当前位置》全站内容设置》系统通知》发布系统通知  &nbsp;  &nbsp; <a href="Bclient_notice.html">返回首页</a>
-<!--    <a href="#" role="button" class="btn btn-default btn-sm">系统通知管理</a>-->
-<!--    <a href="#" role="button" class="btn btn-default btn-sm">添加系统通知</a>-->
     <hr />
-    <ul class="nav nav-tabs tabs-flat">
-        <li class="active"><a class="one_tag" href="#one" data-toggle="tab">基本信息</a></li>
-    </ul>
-
+</div>
+<div class="box-content">
     <form id="form1" name="form1" onsubmit="return submitChick();" action="create" method="post" enctype="multipart/form-data" class="form-horizontal">
-        <input type="hidden" value="eHlvSW5idS03DTURHzUNeyJJDC4fL1hkDj5WKxYgP38hNxt8GQ8yZA==" name="_csrf-backend" />
-        <input type="hidden" name="selectCode">
         <div class="tab-content tabs-flat"  style="margin-top: 20px">
             <div class="tab-pane active" id="one">
-
                 <div class="form-group">
                     <label  class="col-sm-1 control-label">通知区域</label>
                     <div style="width: 80%" class="col-sm-3">
@@ -197,17 +170,9 @@
             </div>
     </form>
 </div>
-
-
-
-    </div>
 </div>
 <script type="text/javascript">
-                        //实例化编辑器
-                        //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
-                        var ue = UE.getEditor('editor');
-                    
-
+    var ue = UE.getEditor('editor');
     var _csrfToken = $('input[name=_csrf-backend]').val();
     /*监听网页*/
     $(window).unload(function(){
