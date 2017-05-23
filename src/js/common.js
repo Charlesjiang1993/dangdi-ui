@@ -38,32 +38,8 @@
 
 	}
 
-	//隔行变色函数
-	function intervalcolor(){
-		var oTbody = document.getElementsByTagName("tbody")[0];
-		var aTr = oTbody.getElementsByTagName("tr");
-		console.log(aTr.length)
-		for (var i = 0; i < aTr.length; i++) {
-			if (i % 2 == 0) {
-				aTr[i].style.background = '#F5F5F5';
-			};
-		}
-	}
-
-	//创建表格元素方法
-	var createDate = function(n) {
-		var oTbody = oTab.getElementsByTagName("tbody")[0];
-		var oTr = document.createElement('tr');
-		for (var i = 0; i < n; i++) {
-			var oTd = document.createElement('td');
-			oTr.appendChild(oTd);
-		}
-
-		oTab.tBodies[0].appendChild(oTr);
-	}
-
 	//删除文章确认框
-	function del(){
+	function del() {
 		var msg = "确定要删除这篇文章吗？\n\n请确认！";
 		if (confirm(msg) == true) {
 			return true;
@@ -81,22 +57,121 @@
 		}
 	}
 
-	
-	//请求数据生成表格
+
+	//请求数据DOM生成表格,
+	var getData = function(json, callback1) {
+			var oTbody = document.getElementsByTagName("tbody")[0];
+			var aTh = document.getElementsByTagName("thead")[0].getElementsByTagName("th");
+			ajax(json.method, json.url, json.data, function(data) {
+				console.log(data);
+				if (data) {
+					console.log("count=" + data.count)
+					if (data.count) { //如果返回数据的数目不为0
+						if (data.list) {
+							for (var i in data.list) {
+								var oTr = document.createElement('tr');
+								for (var j = 0; j < aTh.length - 1; j++) {
+									var oTd = document.createElement('td');
+									oTd.innerHTML = data.list[i][json.arr[j]];
+									oTr.appendChild(oTd);
+								};
+								var oTd = document.createElement('td');
+								oTd.innerHTML = json.options;
+								oTr.appendChild(oTd);
+								oTbody.appendChild(oTr);
+							};
+						}
+						if (document.getElementById("showCount")) { //如果页面需要显示总个数
+							document.getElementById("showCount").innerHTML = data.count;
+						}
+						callback1();
+					} else { //请求的数据数目为0
+						var oBox = document.getElementsByClassName("box-content")[0];
+						var oDiv = document.createElement('div');
+						oDiv.innerHTML = "暂无数据";
+						oBox.appendChild(oDiv);
+					}
+
+				}
+
+			})
+		}
+		//innerHtml生成元素
 	var ajaxData;
-	var getData = function(json,callback) {
+	var getData2 = function(json, callback, callback1) {
+		var aTh = document.getElementById("tables").getElementsByTagName("th");
 		var oTbody = document.getElementsByTagName("tbody")[0];
-		ajax(json.method,json.url,json.data, function(data) {
+		ajax(json.method, json.url, json.data, function(data) {
 			console.log(data)
-			ajaxData = data;
+			ajaxData = data.list;
 			if (data) {
-				oTbody.innerHTML = callback(data);
+				oTbody.innerHTML = callback(data.list);
+			}
+			if (document.getElementById("showCount")) {
+				document.getElementById("showCount").innerHTML = data.count;
+			}
+			callback1();
+		})
+	}
+
+	//动态创建页尾
+	var showFooter = function(json) {
+		var oUl = document.getElementsByClassName("footer")[0].getElementsByTagName("ul")[0];
+		ajax(json.method, json.url, json.data, function(data) {
+			if (data) {
+				if (data.count) { //请求data数量不为0
+					let showNum, pageNum;
+					pageNum = parseInt(data.count / 10 + 1);
+					if (data.count / 10 < 10) {
+						showNum = data.count / 10 + 1;
+					} else {
+						showNum = 10;
+					}
+					for (var i = pageNum; i > 0; i--) {
+						var oLi = document.createElement('li');
+						oLi.className = 'liTag';
+						oLi.innerHTML = i;
+						oUl.appendChild(oLi);
+					}
+				} else { /*请求data数量为0*/ }
+
 			}
 		})
 	}
 
-	// //点击尾页请求数据 json为ajax参数 dataNum为页码
-	// var nextPage = function(json,dataNum,setStr) {
-	// 	json.data= "type=" + 0 + "&page=" + dataNum + "&pageSize=" + 10;
-	// 	getData(json,setStr);
-	// }
+	//点击页尾page加载数据
+	function clickPage(json) {
+		var page;
+		var aAtag = document.getElementsByClassName("footer")[0].getElementsByTagName("a");
+		//console.log(aAtag.length);
+		for (var i = 0; i < aAtag.length; i++) {
+			aAtag[i].index = i;
+			aAtag[i].onclick = function() {
+				document.getElementsByTagName("tbody")[0].innerHTML = '';
+				page = parseInt(aAtag[this.index].innerHTML);
+				if (aAtag[this.index].innerHTML != '下一页' && aAtag[this.index].innerHTML != '尾页') {
+					// console.log("page="+ page);
+					json.data = "type=" + 2 + "&page=" + page + "&pageSize=" + 10;
+					getData(json, intervalcolor, showFooter, showCount);
+				} else if (aAtag[this.index].innerHTML == '下一页') {
+					page
+				} else {
+
+				}
+			}
+		}
+	}
+
+	//隔行变色函数
+	function intervalcolor() {
+		var oTbody = document.getElementsByTagName("tbody")[0];
+		var aTr = oTbody.getElementsByTagName("tr");
+		for (var i = 0; i < aTr.length; i++) {
+			if (i % 2 == 0) {
+				aTr[i].style.background = '#F5F5F5';
+			};
+		}
+	}
+
+	//空函数
+	function nullFunction() {}

@@ -27,17 +27,19 @@
                 </tbody>
             </table>
             <div class="footer">
-                <span style="display:inline-block;position:absolute;top:0;right:0;"><a href="" onclick="">尾页</a></span>
-                <span style="display:inline-block;position:absolute;top:0;right:40px;"><a href="" onclick="">下一页</a></span>
-                <ul>
-                    <li style="display:inline-block;position:absolute;top:0;right:230px;" class="active"><a style="" href="" onclick="">1</a></li>
-                    <li style="display:inline-block;position:absolute;top:0;right:210px;" ><a href="" onclick="">2</a></li>
-                    <li style="display:inline-block;position:absolute;top:0;right:190px;" ><a href="" onclick="">3</a></li>
-                    <li style="display:inline-block;position:absolute;top:0;right:170px;" ><a href="" onclick="">4</a></li>
-                    <li style="display:inline-block;position:absolute;top:0;right:150px;" ><a href="" onclick="">5</a></li>
-                    <li style="display:inline-block;position:absolute;top:0;right:130px;" ><a href="" onclick="">6</a></li>
-                    <li style="display:inline-block;position:absolute;top:0;right:110px;" ><a href="" onclick="">7</a></li>
-                    <li style="display:inline-block;position:absolute;top:0;right:90px;" ><a href="" onclick="">8</a></li>
+                <span style="display:inline-block;position:absolute;top:0;right:0;"><a>尾页</a></span>
+                <span style="display:inline-block;position:absolute;top:0;right:40px;"><a>下一页</a></span>
+                <ul style="margin-right:80px">
+                    <li style="display:inline-block;float:right;margin-right:10px;"><a style="">10</a></li>
+                    <li style="display:inline-block;float:right;margin-right:10px;" ><a>9</a></li>
+                    <li style="display:inline-block;float:right;margin-right:10px;" ><a>8</a></li>
+                    <li style="display:inline-block;float:right;margin-right:10px;" ><a>7</a></li>
+                    <li style="display:inline-block;float:right;margin-right:10px;" ><a>6</a></li>
+                    <li style="display:inline-block;float:right;margin-right:10px;" ><a>5</a></li>
+                    <li style="display:inline-block;float:right;margin-right:10px;" ><a>4</a></li>
+                    <li style="display:inline-block;float:right;margin-right:10px;" ><a>3</a></li>
+                    <li style="display:inline-block;float:right;margin-right:10px;" ><a>2</a></li>
+                    <li style="display:inline-block;float:right;margin-right:10px;" ><a>1</a></li>
                 </ul>
             </div>      
         </div >
@@ -45,30 +47,16 @@
 
 <script>
 window.onload=function(){
-    var ale=function() {
-            console.log("sss")
-        }
         var json = {
         "method": "POST",
         "url": urlA + "report/list",
         "data": "type=" + 0 + "&page=" + 1 + "&pageSize=" + 10, 
+        "options":'<a href="#" >冻结<a>',
+        "arr":['no','title','typeName','reportDate']
         }
-        
-        var setStr=function(ajaxData){
-            var str = "";
-            for (i in ajaxData) {
-                str += '<tr>' +
-                    '<td>' +ajaxData[i].no + '</td>' +
-                    '<td>' + ajaxData[i].title + '</td>' +
-                    '<td>' + ajaxData[i].typeName + '</td>' +
-                    '<td>' + ajaxData[i].reportDate+ '</td>' +
-                    '<td>' + '<a href="#">冻结</a>'+ '</td>' +
-                    '</tr>';
-            }
-            return str;
-        }
-        getData(json,setStr);
-        intervalcolor();
+        getData(json,intervalcolor);
+        showFooter(json);
+       
 }
 
         
