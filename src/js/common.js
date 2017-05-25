@@ -57,148 +57,145 @@
 		}
 	}
 
-
-	//请求数据DOM生成表格,callback1为隔行变色函数，createFooter为生成页尾
-	var getData = function(json,intervalcolor) {
-			var oTbody = document.getElementsByTagName("tbody")[0];
-			var aTh = document.getElementsByTagName("thead")[0].getElementsByTagName("th");
-			ajax(json.method, json.url, json.data, function(data) {
-				console.log(data);
-				if (data) {
-					console.log("count=" + data.count)
-					if (data.count) { //如果返回数据的数目不为0
-						if (data.list) {
-							for (var i in data.list) {
-								var oTr = document.createElement('tr');
-								for (var j = 0; j < aTh.length - 1; j++) {
-									var oTd = document.createElement('td');
-									oTd.innerHTML = data.list[i][json.arr[j]];
-									oTr.appendChild(oTd);
-								};
-								var oTd = document.createElement('td');
-								oTd.innerHTML = json.options;
-								oTr.appendChild(oTd);
-								oTbody.appendChild(oTr);
-							};
-						}
-						if (document.getElementById("showCount")) { //如果页面需要显示总个数
-							document.getElementById("showCount").innerHTML = data.count;
-						}
-						intervalcolor();
-						//createFooter(data);
-					} else { //请求的数据数目为0
-						var oBox = document.getElementsByClassName("box-content")[0];
-						var oDiv = document.createElement('div');
-						oDiv.innerHTML = "暂无数据";
-						oBox.appendChild(oDiv);
-					}
-
-				}
-
-			})
-		}
-
-		//innerHtml生成元素 callback为set数据函数 callback1为隔行变色函数，createFooter为生成页尾
-	var ajaxData;
-	var getData2 = function(json, setStr, callback1) {
+	//innerHtml生成元素 setStr为set数据函数 intervalcolor为隔行变色函数
+	var getData = function(json, setStr, intervalcolor, callback) {
 		var aTh = document.getElementById("tables").getElementsByTagName("th");
 		var oTbody = document.getElementsByTagName("tbody")[0];
 		ajax(json.method, json.url, json.data, function(data) {
-			console.log(data)
-			ajaxData = data.list;
+			console.log(data);
 			if (data) {
-				oTbody.innerHTML = setStr(data.list);
+				if (data.list) {
+					oTbody.innerHTML = setStr(data.list);
+					intervalcolor();
+				} else {
+					oTbody.innerHTML = setStr(data);
+					intervalcolor();
+				}
 			}
 			if (document.getElementById("showCount")) {
 				document.getElementById("showCount").innerHTML = data.count;
 			}
-			callback1();			
+			callback(data);
 		})
 	}
 
-	//动态创建页尾
-	var showFooter = function(json,setStr,clickPage) {
-		var oUl = document.getElementsByClassName("footer")[0].getElementsByTagName("ul")[0];
-		ajax(json.method, json.url, json.data, function(data) {
-			if (data) {
-				if (data.count) { //请求data数量不为0
-					let pageShow, pageMax;
-					pageMax = parseInt(data.count / 10 + 1);
-					if (data.count / 10 <= 10){
-						if(data.count%10==0){
-							pageShow =pageMax= parseInt(data.count / 10);
-						}else{
-							pageShow =pageMax= parseInt(data.count / 10 + 1);
-						}
-					} else {
-						pageShow = 10;
+	//动态创建页尾 json为数据项 data为传入的ajax请求数据  clickpage为点击页码的函数
+	var showFooter = function(json, data, setStr, clickPage) {
+			if (document.getElementsByClassName("footer")[0]) {
+				var oFooter = document.getElementsByClassName("footer")[0];
+				var oUl = oFooter.getElementsByTagName("ul")[0];
+				if (data) {
+					if (data.count != 0) { //请求data数量不为0
+						let pageShow, pageMax;
 						pageMax = parseInt(data.count / 10 + 1);
-					}
-					for (var i = pageMax; i > 0; i--) {
-						var oLi = document.createElement('li');
-						oLi.className = 'liTag';
-						oLi.innerHTML = i;
-						oUl.appendChild(oLi);
-					}
+						if (data.count / 10 <= 10) {
+							if (data.count % 10 == 0) {
+								pageShow = pageMax = parseInt(data.count / 10);
+							} else {
+								pageShow = pageMax = parseInt(data.count / 10 + 1);
+							}
+						} else {
+							pageShow = 10;
+							pageMax = parseInt(data.count / 10 + 1);
+						}
+						var lastPage = document.createElement('span');
+						lastPage.id = 'lastPage';
+						lastPage.className = 'liTag';
+						lastPage.innerHTML = '尾页';
+						oFooter.insertBefore(lastPage, oUl);
+						var nextPage = document.createElement('span');
+						nextPage.id = 'nextPage';
+						nextPage.className = 'liTag';
+						nextPage.innerHTML = '下一页';
+						oFooter.insertBefore(nextPage, lastPage);
 
-				} else { /*请求data数量为0*/ }
-				clickPage(json,setStr);
-			}
-		})
-	}
-	//作为回调函数 动态创建页尾
-	var createFooter = function(data) {
-		var oUl = document.getElementsByClassName("footer")[0].getElementsByTagName("ul")[0];
-		if (data.count) { //请求data数量不为0
-			let pageShow, pageMax;
-			if (data.count / 10 <= 10) {
-				if(data.count%10==0){
-					pageShow =pageMax= parseInt(data.count / 10);
-				}else{
-					pageShow =pageMax= parseInt(data.count / 10 + 1);
+						//生成显示的页码li
+						for (var i = pageShow; i > 0; i--) {
+							var oLi = document.createElement('li');
+							oLi.className = 'liTag';
+							oLi.innerHTML = i;
+							oUl.appendChild(oLi);
+						}
+						oUl.getElementsByClassName("liTag")[oUl.getElementsByClassName("liTag").length - 1].className = 'activeliTag liTag';
+						clickPage(json, setStr, pageShow, pageMax);
+					} else { /*请求data数量为0*/ }
+
 				}
-				
-			} else {
-				pageShow = 10;
-				pageMax = parseInt(data.count / 10 + 1);
 			}
-			for (var i = pageMax; i > 0; i--) {
-				var oLi = document.createElement('li');
-				oLi.className = 'liTag';
-				oLi.innerHTML = i;
-				oUl.appendChild(oLi);
-			}
-		} else { /*请求data数量为0*/ }		
-	}
-
-	//点击页尾page加载数据
-	function clickPage(json,setStr){
-		var page;
-		// var aFootLi = document.getElementsByClassName("footer")[0].getElementsByTagName("li");
+		}
+		//生成单个ul
+	var singleLi = function() {}
+		//点击页尾page加载数据
+	var clickPage = function(json, setStr, pageShow, pageMax) {
+		var pageInner; //点击页码的innerHTML
+		var pageCurrent = 1; // 当前显示的数据的页码
 		var aFootLi = document.getElementsByClassName("footer")[0].getElementsByClassName("liTag");
-		console.log(aFootLi.length);
+		// console.log(aFootLi.length);
 		for (var i = 0; i < aFootLi.length; i++) {
 			aFootLi[i].index = i;
 			aFootLi[i].onclick = function() {
-				console.log("click li");
-				document.getElementsByTagName("tbody")[0].innerHTML = '';
-				page = parseInt(aFootLi[this.index].innerHTML);
-				if (aFootLi[this.index].innerHTML != '下一页' && aFootLi[this.index].innerHTML != '尾页') {
-					// console.log("page="+ page);
-					json.data = "type=" + 2 + "&page=" + page + "&pageSize=" + 10;
-					// getData(json,intervalcolor,createFooter);
-					getData2(json,setStr,intervalcolor);
-				} else if (aFootLi[this.index].innerHTML == '下一页') {
-					page
-				} else {
-
+				var changeColor = function(a) { //改变点击后的颜色
+					for (var j = 0; j < aFootLi.length; j++) {
+						aFootLi[j].className = 'liTag';
+					}
+					aFootLi[a].className = 'activeliTag liTag';
+				}
+				document.getElementsByTagName("tbody")[0].innerHTML = ''; // 清空已有数据
+				pageInner = isNaN(aFootLi[this.index].innerHTML) ? aFootLi[this.index].innerHTML : parseInt(aFootLi[this.index].innerHTML);
+				pageCurrent = isNaN(pageInner) ? pageCurrent : pageInner;
+				//console.log("pageInner=" + pageInner);		
+				if (aFootLi[this.index].innerHTML != '下一页' && aFootLi[this.index].innerHTML != '尾页') { //点击数字
+					changeColor(this.index);
+					json.data = "type=" + json.type + "&page=" + pageInner + "&pageSize=" + json.pageSize;
+					getData(json, setStr, intervalcolor, function() {});
+				} else
+				if (aFootLi[this.index].innerHTML == '下一页') { // 点击下一页
+					if (pageCurrent < pageMax) {
+						pageCurrent += 1
+					}
+					console.log("pagecurrent=" + pageCurrent);
+					console.log("pageMax=" + pageMax);
+					if (pageCurrent <= pageMax) { //当前显示的页面的page小于等于最大页
+						changeColor(aFootLi.length - pageCurrent);
+						//console(pageCurrent);
+						json.data = "type=" + json.type + "&page=" + pageCurrent + "&pageSize=" + json.pageSize;
+						getData(json, setStr, intervalcolor, function() {});
+					}
+				} else { //点击尾页
+					changeColor(aFootLi.length - pageMax);
+					json.data = "type=" + json.type + "&page=" + pageMax + "&pageSize=" + json.pageSize;
+					getData(json, setStr, intervalcolor, function() {});
 				}
 			}
 		}
 	}
 
-	//隔行变色函数
-	function intervalcolor() {
+	//表格中的操作
+	var tabOptions = function(optionsJson) {
+			var aOptions = document.getElementById("tables").getElementsByTagName("tbody")[0].getElementsByTagName("a");
+			for (var i = 0; i < aOptions.length; i++) {
+				aOptions[i].index = i;
+				aOptions[i].onclick = function() {
+					if (aOptions[this.index].innerHTML = '删除') { // 删除操作
+						// optionsJson.data = optionsJson
+					} else if (aOptions[this.index].innerHTML = '修改') { //修改操作
+
+					} else if (aOptions[this.index].innerHTML = '冻结') {
+
+					} else if (aOptions[this.index].innerHTML = '查看详情') {
+
+					} else if (aOptions[this.index].innerHTML = '进入主体') {
+
+					} else {
+
+					}
+				}
+
+			};
+
+		}
+		//隔行变色函数
+	var intervalcolor = function() {
 		var oTbody = document.getElementsByTagName("tbody")[0];
 		var aTr = oTbody.getElementsByTagName("tr");
 		for (var i = 0; i < aTr.length; i++) {

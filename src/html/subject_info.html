@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/common.css">
+    <script src="../js/common.js"></script>
+</head>
+<body>
+ <div class="box">
+ 	<div class="box-title">
+                <div id="subjectClasses">
+                    <a href="">个人</a>
+                    <a href="" class="activeATag">企业</a>
+                    <a href="">政务</a>
+                </div> 
+                <form id="forms" action="" method="get">
+                    <input type="text" name="keywords" value="" class="form-contro" style="" placeholder="关键字" />
+                    <button type="submit"  role="button" class="btn">搜索</button>
+                </form>
+                <span>主体统计：共计</span><span id="showCount"></span>个
+ 	</div>
+ 	<div class="box-content">
+ 		<table  id="tables" class="">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>当地ID</th>
+                        <th>主体全称</th>
+                        <th>主体简称</th>
+                        <th>使用状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>  
+                    </tbody>
+                </table>
+                <div class="footer">
+                <ul style="margin-right:80px;">
+                </ul>
+            </div>      
+ 	</div>
+ </div>
+ <script>
+ window.onload=function(){
+    var aTag=document.getElementById("subjectClasses").getElementsByTagName("a");
+    // console.log(aTag)
+    var json = {
+        "method": "POST",
+        "url": urlA + "subject/list",
+        "data": "type=" + 2+ "&page=" + 1+ "&pageSize=" + 10,
+        "type":2,"page":1,"pageSize":10,
+        "options":'<a href="./Csubject_detail.html">查看详情</a>&nbsp;/&nbsp;<a href="#">进入主体</a>'
+    }
+    var setStr=function(data){
+        var str = "";
+        for (i in data) {
+            str += "<tr>" +
+                "<td>" +data[i].no + "</td>" +
+                "<td>" + data[i].dangdiID + "</td>" +
+                "<td>" + data[i].subject + "</td>" +
+                "<td>" + data[i].abbreviation+ "</td>" +
+                "<td>" + ((data[i].status==0)?"冻结":"正常") + "</td>" +  
+                "<td>" +  json.options+ "</td>" +
+                "</tr>";
+        }
+        return str;
+    }
+    // // var changeClass=function(){
+    //      for (var i = 0; i <aTag.length; i++) {
+    //     aTag[i].index=i;
+    //     aTag[i].onclick=function(){
+    //         for(var j=0;j<aTag.length;j++){
+    //             aTag[j].className="";
+    //         }
+    //         aTag[this.index].className="activeATag";
+    //         // json.data="type=" + (this.index+1)+ "&page=" + 1+ "&pageSize=" + 10;
+    //         // getData(json,setStr,intervalcolor, function(data){
+    //         //     showFooter(json,data,setStr,clickPage);
+    //         // });
+
+    //     }
+    // };
+
+    
+   getData(json,setStr,intervalcolor, function(data){
+        showFooter(json,data,setStr,clickPage);
+    });
+
+
+   
+
+
+ }
+ </script>  
+</body>
+</html>

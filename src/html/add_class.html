@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="../styles/common.css">
+    <script src="../js/common.js"></script>
+</head>
+<body>
+<div class="box"> 
+        <div class="box-title">
+          <a href="#" onclick="javascript:history.back(-1)">返回首页</a>
+          <hr/>
+        </div>
+        <div class="box-content">
+        <form id="forms" name="form1" action="create"  method="post"  class="form-horizontal">
+          
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <label for="data-title" class="sr-only">分类名</label>
+                    <input id="data-title" type="text" name="param[name]" class="form-control"
+                           value="" placeholder="分类名" required autofocus />
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <label for="data-title" class="sr-only">排序</label>
+                    <input style="height: 33px;width: 129px;text-align: center;font-size: 15px;" value="1" type="number" name="param[sortOrder]" placeholder="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">选择区域</label>
+            </div>
+
+            <hr />
+            <div class="form-submit">
+                
+                <button onclick="checkForm()" type="button" name="dosubmit" value="提交" class="">提交（OK）</button>
+                <a href="#" onclick="javascript:history.back(-1)" role="button" class="">返回列表</a>
+            </div>
+
+        </form>
+        </div>
+    </div>
+
+<!-- <script type="text/javascript">
+
+    function checkForm(){
+           var selectType = $("#typeDiv select").val(),typeName=$("#data-title").val(),checkArea = $("input[type=checkbox]:checked");
+           var areaNum = checkArea.length;
+                if($.trim(typeName)!== ''){
+                     if(parseInt(areaNum)>0){
+                         var strCode ='';
+                         $.each(checkArea,function(k,v){
+                             strCode+=','+ $(this).attr('id');
+                         });
+                         $("input[name=selectCode]").val(strCode);
+                         $("#formt").submit();
+                     }else {
+                         alert('请选择区域');
+                     }
+                }else {
+                    alert('请填写分类名');
+                }
+//           }else{
+//               alert('请选择分类');return false;
+//           }
+    }
+
+    function openArea(o){
+        var show =  $("#areaShow").css('display');
+        if(show=='none'){
+            $(o).text('关闭');
+            $("#areaShow").css('display','block');
+        }else{
+            $(o).text('展开');
+            $("#areaShow").css('display','none');
+        }
+
+    }
+</script> -->
+</body>
+</html>

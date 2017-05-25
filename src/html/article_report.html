@@ -27,8 +27,6 @@
                 </tbody>
             </table>
             <div class="footer">
-                <span style="display:inline-block;position:absolute;top:0;right:0;"><a>尾页</a></span>
-                <span style="display:inline-block;position:absolute;top:0;right:40px;"><a>下一页</a></span>
                 <ul style="margin-right:80px">
                 </ul>
             </div>      
@@ -41,11 +39,26 @@ window.onload=function(){
         "method": "POST",
         "url": urlA + "report/list",
         "data": "type=" + 0 + "&page=" + 1 + "&pageSize=" + 10, 
+        "type":0,"page":1,"pageSize":10,
         "options":'<a href="#" >冻结<a>',
         "arr":['no','title','typeName','reportDate']
         }
-        getData(json,intervalcolor);
-        showFooter(json,clickPage);
+        var setStr=function(data){
+            var str = "";
+            for (i in data) {
+                str += "<tr>" +
+                    "<td>" +data[i].no + "</td>" +
+                    "<td>" +'<a href="#">'+ data[i].title +'</a>'+ "</td>" +
+                    "<td>" + data[i].typeName + "</td>" +
+                    "<td>" + data[i].reportDate+ "</td>" +
+                    "<td>" +  json.options+ "</td>" +
+                    "</tr>";
+            }
+            return str;
+        }
+       getData(json,setStr,intervalcolor, function(data){
+        showFooter(json,data,setStr,clickPage);
+    });
        
 }
 

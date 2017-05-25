@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+   <meta charset="UTF-8">
+   <title>后台通知</title>
+   <link rel="stylesheet" href="../styles/common.css">
+   <script src="../js/common.js"></script>
+</head> 
+<body>
+<div>
+    <div class="box">
+        <div class="box-title">
+            <a href="add_notice.html">发布站内通知</a>
+            <div>
+                <form id="forms" action="tell" method="get">
+                    <button type="submit"  role="button" class="btn btn-default  fr">搜索</button>
+                    <input type="hidden" name="_csrf-backend" value="MkhUYzNWdUwFAhgAWjwqInsYDiJrEzYUYyYRCV5jAhVdC2YxeTQCFA==">
+                    <select name="isRead"  class="form-control fr"  style="width:200px;display:inline;">
+                        <option value="">状态</option>
+                        <option value="1" >已读</option>
+                        <option value="0" >未读</option>
+                    </select>
+                    <input type="text" name="subject" value="" class="form-control fr" style="width:200px;display:inline; " placeholder="主体" />
+
+                    <input type="text" name="msgTitle" value="" class="form-control fr" style="width:200px;display:inline; " placeholder="通知标题" />
+                </form>
+            </div>
+        </div>
+
+        <div class="box-content">
+            <table id="tables" class="table">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>标题</th>
+                    <th>内容</th>
+                    <th>传送门</th>
+                    <th>时间</th>
+                    <th>是否阅读</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                    
+                </tbody>
+            </table>
+            <div class="footer">
+                <ul>
+                </ul>
+            </div>           
+            <span style="clear: both"></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

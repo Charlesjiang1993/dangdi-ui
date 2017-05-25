@@ -4,7 +4,6 @@ window.onload = function() {
     var oRight = document.getElementById('index_right');
     var aUl = oRight.getElementsByTagName('ul');
     var aLi = document.getElementsByTagName('li');
-    console.log("aLi.length="+aLi.length);
     var oIframe = document.getElementById('iframebox')
     var num = 0;
     //退出按钮功能
@@ -13,13 +12,13 @@ window.onload = function() {
             window.parent.location = '../login.html';
         }
         //跨域地址
-    var iframe_arr = ["Amenu_manage.html", "Aroles_manage.html", "Aaccount_manage.html", "Asystem_log.html",
-            "Bhome_subject.html", "Bgov_class.html", "Bportal_class.html", "Bevents_pages.html", "Bclient_notice.html", "Bbg_notice.html",
-            "Csubject_info.html", "Csubject_add.html", "Csubject_review.html", "Cweight_set.html",
-            "Gportal_article.html", "Ggov_acticle.html",
-            "Dincome_statistics.html", "Dcomsume.html", "Dwithdraw_apply.html", "Drecharge_apply.html", "Dred_packets.html",
-            "Edoor_bind.html",
-            "Farticle_report.html", "Fsubject_report.html"
+    var iframe_arr = ["menu_manage.html", "roles_manage.html", "account_manage.html", "system_log.html",
+            "home_subject.html", "gov_class.html", "portal_class.html", "events_pages.html", "client_notice.html", "bg_notice.html",
+            "subject_info.html", "subject_add.html", "subject_review.html", "weight_set.html",
+            "portal_article.html", "gov_acticle.html",
+            "income_statistics.html", "comsume.html", "withdraw_apply.html", "recharge_apply.html", "red_packets.html",
+            "door_bind.html",
+            "article_report.html", "subject_report.html"
         ]
         //左侧一级菜单功能
     for (var i = 0; i < aLeftDiv.length; i++) {

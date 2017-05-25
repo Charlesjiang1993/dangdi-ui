@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>系统日志</title>
+    <link rel="stylesheet" href="../styles/common.css">
+    <script src="../js/common.js"></script>
+<body>
+    <div class="box">
+        <div class="box-title">
+            <form action="index" method="get">
+                <input type="text" name="keywords" value="" class="form-contro" style="" placeholder="关键字" />
+                <select name="results"  class="form-control">
+                    <option value="">请选择执行结果</option>
+                    <option value="success" >success</option>
+                    <option value="error" >error</option>
+                </select>
+                
+                <select name="type"  class="form-control"  >
+                    <option value="">请选择账号类型</option>
+                    <option  value="manager" >系统管理员</option>
+                    <option  value="1" >政府账号</option>
+                    <option  value="2" >第三方账号</option>
+                </select>
+                <button type="submit"  role="button" class="btn">搜索</button>
+            </form>
+        </div>
+        
+        <div class="box-content">
+        <form id="forms"  action="all-delete" method="post" onsubmit="return check()">
+            <table id="tables" class="table">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th >详情</th>
+                        <th>ip</th>
+                        <th>操作时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+
+            </table>
+            </form>
+            <div class="footer">
+                <ul style="margin-right:80px">
+                </ul>
+            </div>            
+        </div>
+    </div>
+</div>
+</div>
+<script>
+window.onload=function(){
+        // ajax("post",urlA + "setting/notices",null,function(data){
+        //     if (data) {console.log(data)};
+        // })
+    var json = {
+        "method": "POST",
+        "url": urlA + "setting/notices",
+        "data":null,
+        "type":null,"page":null,"pageSize":null,
+        "options":'<a href="#">冻结</a>',
+        // "arr":["no","subject","typeName","reportDate"]
+    }
+    var setStr=function(data){
+        var str = "";
+        for (i in data) {
+            str += '<tr>' +
+                '<td>' +data[i].noticeID + '</td>' +
+                '<td>' + data[i].noticeContent + '</td>' +
+                '<td>' + data[i].typeCode + '</td>' +
+                '<td>' + data[i].publishDate+ '</td>' +
+                '</tr>';
+        }
+        return str;
+    }
+    getData(json,setStr,intervalcolor, function(data){
+        showFooter(json,data,setStr,clickPage);
+    });
+}
+</script></body>
+</html>

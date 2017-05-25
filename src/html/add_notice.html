@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="../styles/common.css">
+    <script src="../js/common.js"></script>
+</head>
+<body>
+<div class="box">
+<div class="box-title">
+    当前位置》传送门账号管理》站内通知》发布站内通知  &nbsp;  &nbsp; <a href="Bbg_notice.html">返回首页</a>
+    <hr />
+</div>
+<div class="box-content">
+    <form id="forms" name="form1" onsubmit="return submitChick();" action="creat" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+        <div class=""  style="margin-top: 20px">
+
+                <div class="form-group">
+                    <label class=" control-label">通知标题<span class="c_r">*</span></label>
+                    <div class="col-sm-6">
+                        
+                        <input id="data-title" type="text" name="msgTitle" class="form-control a-title"
+                               value="" required placeholder="通知标题"  autofocus />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class=" control-label">传送门</label>
+                    <div class="col-sm-6">
+                       
+                        <input id="data-title" type="text" name="subject" class="form-control a-title"
+                               value=""  placeholder="请输入主体名称,多个主题用逗号隔开,为空则表示全部"  autofocus />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class=" control-label">内容<span class="c_r">*</span></label>
+                <div>
+                   
+                    <textarea required name="msgContent" id="editor" type="text/plain" language="javascript" class="0" style="height:380px;"></textarea>
+                    
+                </div>
+            </div>
+
+            <hr />
+            <div class="form-group">
+                
+                    <a href="bg_notice.html" role="button" class="">返回列表</a>
+                    <button type="submit" name="dosubmit" value="提交" class="">提交（OK）</button>
+               
+            </div>
+    </form>
+</div>
+
+
+
+    </div>
+</body>
+</html>

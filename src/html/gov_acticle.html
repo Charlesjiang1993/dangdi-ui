@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>政务文章列表</title>
+	<link rel="stylesheet" href="../styles/common.css">
+    <script src="../js/common.js"></script>
+</head>
+<body>
+<div class="box">
+    <div class="box-title">
+        <span>总文章数</span><span id="showCount"></span>
+        <form action="" method="get">
+            <select name="" id="">
+                <option value="">标题</option>
+                <option value="">时间</option>
+            </select>
+            <input type="text" placeholder="请输入关键字">
+            <button type="submit" role="button">搜索</button>     
+        </form>
+    </div>
+    <div class="box-content">
+        <table id="tables" class="tab">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th style="width:700px">文章标题</th>
+                    <th>主体名称及ID</th>
+                    <th>时间</th>
+                    <th>发布区域</th>
+                    <th>操作</th> 
+                </tr>
+                
+            </thead>
+            <tbody>
+            </tbody>
+    </table>
+    <div class="footer">
+               
+                <ul style="margin-right:80px;">
+                </ul>
+    </div>     
+    </div>
+
+    
+</div>
+<script>
+    window.onload=function(){
+        ajax("post",urlA+"partner/notices", "title=" + ""+ "&page=" + 1+ "&pageSize=" + 10,function(data){
+            console.log(data)
+        })
+
+        var json = {
+        "method": "POST",
+        "url": urlA + "partner/notices",
+        "data": "title=" + ""+ "&page=" + 1+ "&pageSize=" + 10,
+        "title":null,"page":1,"pageSize":10,
+        "options":'<a href="#">删除</a>',
+    }
+    var setStr=function(data){
+        var str = "";
+        for (i in data) {
+            str += "<tr>" +
+                "<td>" +data[i].no + "</td>" +
+                "<td>" + data[i].noticeTitle + "</td>" +
+                "<td>" + data[i].partnerID + "</td>" +
+                "<td>" + data[i].publishDate+ "</td>" +
+                "<td>" + data[i].visitCount+ "</td>" +  
+                "<td>" +  json.options+ "</td>" +
+                "</tr>";
+        }
+        return str;
+    }
+     getData(json,setStr,intervalcolor, function(data){
+        showFooter(json,data,setStr,clickPage);
+    });
+
+    }
+
+</script>
+</body>
+</html>

@@ -1,42 +1,31 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
-    <meta charset="utf-8">
-    <title></title>
+    <meta charset="UTF-8">
+    <title>发布系统通知</title>
     <link rel="stylesheet" href="../styles/common.css">
     <script src="../js/common.js"></script>
 </head>
 <body>
-<div class="box"> 
-        <div class="box-title">
-          当前位置》全站内容设置》订阅号文章分类》添加分类  &nbsp; &nbsp;
-          <a href="#" onclick="javascript:history.back(-1)">返回首页</a>
-          <hr/>
-        </div>
-        <div class="box-content">
-        <form id="forms" name="form1" action="create"  method="post"  class="form-horizontal">
-          
-            <div class="form-group">
-                <div class="col-sm-3">
-                    <label for="data-title" class="sr-only">分类名</label>
-                    <input id="data-title" type="text" name="param[name]" class="form-control"
-                           value="" placeholder="分类名" required autofocus />
-                </div>
-            </div>
 
+<div class="box">
+    
+<div class="box-title">
+    当前位置》全站内容设置》系统通知》发布系统通知  &nbsp;  &nbsp; 
+    <a href="client_notice.html">返回首页</a>
 
-            <div class="form-group">
-                <div class="col-sm-3">
-                    <label for="data-title" class="sr-only">排序</label>
-                    <input style="height: 33px;width: 129px;text-align: center;font-size: 15px;" value="1" type="number" name="param[sortOrder]" placeholder="">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label">选择区域</label>
-                <div class="">
-                    <a onclick="openArea(this)" class="">展开</a>
-                    <div id="areaShow" style="display: none;"> <a onclick="$('input[type=checkbox]').prop('checked',true);">全选</a><a onclick="$('input[type=checkbox]').prop('checked',false);">取消</a><div class='province'><div class='checkBox'><input onclick='checkThis(this)' id='11' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='11' class='areaName' onclick='getSon(this)'>北京市</a>
+    <hr />
+</div>
+<div class="box-content">
+    <form id="form1" name="form1" onsubmit="return submitChick();" action="create" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <div class="tab-content tabs-flat"  style="margin-top: 20px">
+            <div class="tab-pane active" id="one">
+                <div class="form-group">
+                    <label  class="col-sm-1 control-label">通知区域</label>
+                    <div style="width: 80%" class="col-sm-3">
+                        <a onclick="openArea(this)" class="btn btn-primary btn-sm">展开</a>
+                        <div id="areaShow" style="display: none;"> <div class='province'><div class='checkBox'><input onclick='checkThis(this)' id='11' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='11' class='areaName' onclick='getSon(this)'>北京市</a>
                            <p id='areaSon'></p>
                          </div><div class='checkBox'><input onclick='checkThis(this)' id='12' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='12' class='areaName' onclick='getSon(this)'>天津市</a>
                            <p id='areaSon'></p>
@@ -106,68 +95,78 @@
                            <p id='areaSon'></p>
                          </div><div class='checkBox'><input onclick='checkThis(this)' id='91' class='checkProvince' type='checkbox' name='areCode'/> <a show='true' id='91' class='areaName' onclick='getSon(this)'>汉东省</a>
                            <p id='areaSon'></p>
-                         </div></div>
-                         <!-- <script>
-                         function checkThis(o){
-                         var isClick = $(o).attr('isClick');
-                         if(isClick=='true'){
-                         $(o).attr('isClick','false');
-                         }else{
-                         $(o).next().next().children().remove();;
-                         $(o).attr('isClick','true');
-                         }
-                         }
-                         </script> -->
-                  </div>
+                         </div></div><script>
+                   function checkThis(o){
+                   var isClick = $(o).attr('isClick');
+                   if(isClick=='true'){
+                   $(o).attr('isClick','false');
+                   }else{
+                   $(o).next().next().children().remove();;
+                   $(o).attr('isClick','true');
+                   }
+                   }
+                   </script></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">通知标题<span class="c_r">*</span></label>
+                    <div class="col-sm-6">
+                        <label for="data-title" class="sr-only ">通知标题</label>
+                        <input id="data-title" type="text" name="param[noticeTitle]" class="form-control a-title"
+                               value="" placeholder="系统通知标题"  autofocus />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">是否上传封面</label>
+                    <div class="col-sm-10" id="check-hover">
+                        <label class="checkbox-inline checked">
+                            <input checked style="display: none;" type="radio" name="param[hasCover]" value="1" id="inlineCheckbox1">上传封面
+                        </label>
+                        <label style="width: 77px;height: 31px;" class="checkbox-inline">
+                            <input style="display: none;" type="radio" name="param[hasCover]" value="2" id="inlineCheckbox2">不上传封面
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group imgs" >
+                    <label class="col-sm-1 control-label" style="margin-right: 15px">上传封面</label>
+                    <div class="m-user-poto" >
+                        <div class="user-upload clearfix">
+                            <div class="file-upload f_fl" id="image_input_block">
+                            </div>
+                            <p class="f_fl" style="margin-left:111px">
+                                请上传不超过2M的图片,支持jpg，gif，png
+                            </p>
+                        </div>
+                        <div class="upload-images" id="preview_block" style="margin-left: 111px">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-1 control-label">内容<span class="c_r">*</span></label>
+                <div>
+                    <label for="data-content" class="sr-only">内容</label>
+                    <textarea name="param[noticeContent]" id="editor" type="text/plain" language="javascript" class="col-sm-10" style="height:380px;"></textarea>
+                    
                 </div>
             </div>
 
             <hr />
-            <div class="form-submit">
-                
-                <button onclick="checkForm()" type="button" name="dosubmit" value="提交" class="">提交（OK）</button>
-                <a href="#" onclick="javascript:history.back(-1)" role="button" class="">返回列表</a>
+            <div class="form-group">
+                <label class="col-sm-1 control-label">&nbsp;</label>
+                <div class="col-sm-3">
+                    <a href="client_notice.html" role="button" class="btn btn-sm btn-warning">返回列表</a>
+                    <button type="submit" name="dosubmit" value="提交" class="btn btn-sm btn-primary">提交（OK）</button>
+                </div>
             </div>
-
-        </form>
-        </div>
-    </div>
-
-<!-- <script type="text/javascript">
-
-    function checkForm(){
-           var selectType = $("#typeDiv select").val(),typeName=$("#data-title").val(),checkArea = $("input[type=checkbox]:checked");
-           var areaNum = checkArea.length;
-                if($.trim(typeName)!== ''){
-                     if(parseInt(areaNum)>0){
-                         var strCode ='';
-                         $.each(checkArea,function(k,v){
-                             strCode+=','+ $(this).attr('id');
-                         });
-                         $("input[name=selectCode]").val(strCode);
-                         $("#formt").submit();
-                     }else {
-                         alert('请选择区域');
-                     }
-                }else {
-                    alert('请填写分类名');
-                }
-//           }else{
-//               alert('请选择分类');return false;
-//           }
-    }
-
-    function openArea(o){
-        var show =  $("#areaShow").css('display');
-        if(show=='none'){
-            $(o).text('关闭');
-            $("#areaShow").css('display','block');
-        }else{
-            $(o).text('展开');
-            $("#areaShow").css('display','none');
-        }
-
-    }
-</script> -->
+    </form>
+</div>
+</div>
 </body>
 </html>
